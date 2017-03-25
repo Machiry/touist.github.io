@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.0.3" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="author" content="Olivier Gasquet, Frédéric Maris, Maël Valais" />
+  <title>Touist reference manual</title>
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote { 
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013"; 
+      position: absolute;
+      margin-left: -1em; 
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;  
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
+  }
+  .madoko h5, .madoko h6 { 
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 { 
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 { 
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;    
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]},
+       TeX: { 
+         Macros: { mathid: ['\\mathit{#1\\hspace{0.1ex}}',1],
+                   mathkw: ['\\mathsf{#1}',1],
+                   mdmathindent: ['\\hspace{#1ex}',1],
+                   mathpre: ['#1',1],
+                 },
+  
+       }
+    });
+    MathJax.Hub.Register.StartupHook('TeX AMSmath Ready',function () { 
+      MathJax.InputJax.TeX.Definitions.environment['mdmathpre'] = ['AMSarray',null,null,null,'l','0em','0em'];
+    });
+  </script>
+  <script type="text/javascript" class="preview"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0">
+<div class="titleblock align-center para-block" data-line="10" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" data-line="10" style="text-align:center;line-adjust:0">
+<div class="title para-block" data-line="10" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0"><span data-line="10"></span>Touist reference manual</div>
+<div class="titlenote para-block" data-line="13" style="line-adjust:0"><span data-line="13"></span>Draft, 2017-03-25 (touist )</div></div>
+<div class="authors align-center" data-line="18" style="text-align:center;width:80%;line-adjust:0"><table class="authorrow columns block" data-line="18" style="margin-top:2ex;width:100%;line-adjust:0">
+<tbody><tr><td class="author column" data-line="18" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="18" style="font-size:large;line-adjust:0"><span data-line="18"></span>Olivier Gasquet, Frédéric Maris, Maël Valais</div></td></tr></tbody></table></div></div><span data-line="12"></span>
+<nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target="sec-introduction" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;Introduction" style="toctarget:sec-introduction"><a href="#sec-introduction" class="localref"><span class="heading-label">1</span>.&#8194;Introduction</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target="sec-simple-inference-checking" data-toc-depth="2" data-toc-line="[1.1]{.heading-label}.&#8194;Simple inference checking" style="toctarget:sec-simple-inference-checking"><a href="#sec-simple-inference-checking" class="localref"><span class="heading-label">1.1</span>.&#8194;Simple inference checking</a></div></div>
+<div class="tocitem tocitem1" data-toc-target="sec-language-reference" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;Language reference" style="toctarget:sec-language-reference"><a href="#sec-language-reference" class="localref"><span class="heading-label">2</span>.&#8194;Language reference</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target="sec-structure-of-a-touist-file" data-toc-depth="2" data-toc-line="[2.1]{.heading-label}.&#8194;Structure of a touist file" style="toctarget:sec-structure-of-a-touist-file"><a href="#sec-structure-of-a-touist-file" class="localref"><span class="heading-label">2.1</span>.&#8194;Structure of a touist file</a></div>
+<div class="tocitem tocitem2" data-toc-target="sec-affectations" data-toc-depth="2" data-toc-line="[2.2]{.heading-label}.&#8194;Affectations" style="toctarget:sec-affectations"><a href="#sec-affectations" class="localref"><span class="heading-label">2.2</span>.&#8194;Affectations</a></div>
+<div class="tocitem tocitem2" data-toc-target="sec-variables" data-toc-depth="2" data-toc-line="[2.3]{.heading-label}.&#8194;Variables" style="toctarget:sec-variables"><a href="#sec-variables" class="localref"><span class="heading-label">2.3</span>.&#8194;Variables</a></div>
+<div class="tocitem tocitem2" data-toc-target="sec-propositions" data-toc-depth="2" data-toc-line="[2.4]{.heading-label}.&#8194;Propositions" style="toctarget:sec-propositions"><a href="#sec-propositions" class="localref"><span class="heading-label">2.4</span>.&#8194;Propositions</a></div>
+<div class="tocitem tocitem2" data-toc-target="sec-numeric-expression" data-toc-depth="2" data-toc-line="[2.5]{.heading-label}.&#8194;Numeric expression" style="toctarget:sec-numeric-expression"><a href="#sec-numeric-expression" class="localref"><span class="heading-label">2.5</span>.&#8194;Numeric expression</a></div>
+<div class="tocblock tocblock3">
+<div class="tocitem tocitem3" data-toc-target="sec-integers" data-toc-depth="3" data-toc-line="[2.5.1]{.heading-label}.&#8194;Integers" style="toctarget:sec-integers"><a href="#sec-integers" class="localref"><span class="heading-label">2.5.1</span>.&#8194;Integers</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-floats" data-toc-depth="3" data-toc-line="[2.5.2]{.heading-label}.&#8194;Floats" style="toctarget:sec-floats"><a href="#sec-floats" class="localref"><span class="heading-label">2.5.2</span>.&#8194;Floats</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-booleans" data-toc-depth="3" data-toc-line="[2.5.3]{.heading-label}.&#8194;Booleans" style="toctarget:sec-booleans"><a href="#sec-booleans" class="localref"><span class="heading-label">2.5.3</span>.&#8194;Booleans</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-sets" data-toc-depth="3" data-toc-line="[2.5.4]{.heading-label}.&#8194;Sets" style="toctarget:sec-sets"><a href="#sec-sets" class="localref"><span class="heading-label">2.5.4</span>.&#8194;Sets</a></div></div>
+<div class="tocitem tocitem2" data-toc-target="sec-formulas" data-toc-depth="2" data-toc-line="[2.6]{.heading-label}.&#8194;Formulas" style="toctarget:sec-formulas"><a href="#sec-formulas" class="localref"><span class="heading-label">2.6</span>.&#8194;Formulas</a></div>
+<div class="tocblock tocblock3">
+<div class="tocitem tocitem3" data-toc-target="sec-connectors" data-toc-depth="3" data-toc-line="[2.6.1]{.heading-label}.&#8194;Connectors" style="toctarget:sec-connectors"><a href="#sec-connectors" class="localref"><span class="heading-label">2.6.1</span>.&#8194;Connectors</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-generalized-connectors" data-toc-depth="3" data-toc-line="[2.6.2]{.heading-label}.&#8194;Generalized connectors" style="toctarget:sec-generalized-connectors"><a href="#sec-generalized-connectors" class="localref"><span class="heading-label">2.6.2</span>.&#8194;Generalized connectors</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-simple-formulas" data-toc-depth="3" data-toc-line="[2.6.3]{.heading-label}.&#8194;Simple formulas" style="toctarget:sec-simple-formulas"><a href="#sec-simple-formulas" class="localref"><span class="heading-label">2.6.3</span>.&#8194;Simple formulas</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-smt-formulas" data-toc-depth="3" data-toc-line="[2.6.4]{.heading-label}.&#8194;SMT formulas" style="toctarget:sec-smt-formulas"><a href="#sec-smt-formulas" class="localref"><span class="heading-label">2.6.4</span>.&#8194;SMT formulas</a></div>
+<div class="tocitem tocitem3" data-toc-target="sec-local-variables" data-toc-depth="3" data-toc-line="[2.6.5]{.heading-label}.&#8194;Local variables" style="toctarget:sec-local-variables"><a href="#sec-local-variables" class="localref"><span class="heading-label">2.6.5</span>.&#8194;Local variables</a></div></div>
+<div class="tocitem tocitem2" data-toc-target="sec-formal-grammar" data-toc-depth="2" data-toc-line="[2.7]{.heading-label}.&#8194;Formal grammar" style="toctarget:sec-formal-grammar"><a href="#sec-formal-grammar" class="localref"><span class="heading-label">2.7</span>.&#8194;Formal grammar</a></div></div>
+<div class="tocitem tocitem1" data-toc-target="sec-references" data-toc-depth="1" data-toc-line="References" style="toctarget:sec-references"><a href="#sec-references" class="localref">References</a></div></div></nav><h2 id="sec-introduction" class="h1" data-line="14" data-heading-depth="1" style="display:block"><span data-line="14"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="14"></span>Introduction</h2>
+<p class="p noindent" data-line="16"><span data-line="16"></span>Touist is a language that allows to express propositional logic<span data-line="16"></span>&nbsp;<span class="citations" style="target-element:bibitem">[<a href="#ben_slimane_iaf_2015" title="La logique facile avec TouIST (formalisez et résolvez facilement des problèmes du monde réel)
+Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais, 2015a" class="bibref localref" style="target-element:bibitem"><span class="cite-number">1</span></a>, <a href="#slimanecghlmv15" title="Twist your logic with TouIST
+Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais, 2015b" class="bibref localref" style="target-element:bibitem"><span class="cite-number">2</span></a>]</span><span data-line="16"></span>. You are provided with two programs: a graphical interface, refered as <span data-line="16"></span><code class="code code1">touist.jar</code><span data-line="16"></span> (as it is written in Java) and <span data-line="16"></span><code class="code code1">touistc</code><span data-line="16"></span>, the command-line compiler and solver (written in Ocaml).
+</p>
+<p class="p indent" data-line="18"><span data-line="18"></span>The touist language aims at making the writing of propositional logic as approchable as possible. Propositions and connectors syntaxes are close to what would be written on paper. Propositions are words that can contain numbers, the character <span data-line="18"></span>&#8220;<code class="code code1">_</code>&#8221;<span data-line="18"></span>. Here are some example of formulas:
+</p>
+<div class="center align-center" data-line="20" style="text-align:center"><table class="madoko block" data-line="21">
+<thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="21" data-row="0" data-col="1" style="text-align:center"></th><th class="thead tr-even col cell-line col-even col-last" data-line="21" data-row="0" data-col="2" style="text-align:center"></th></tr>
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="22" data-row="1" data-col="1" style="font-weight:bold;text-align:center"><span data-line="22"></span> Propositional logic   </th><th class="col thead tr-odd tr-last tr-first col-even col-last" data-line="22" data-row="1" data-col="2" style="font-weight:bold;text-align:center"><span data-line="22"></span> <span data-line="22"></span><code class="code code1">touist</code><span data-line="22"></span> language </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="text-align:center"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="text-align:center"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="24" data-row="1" data-col="1" style="text-align:center"><span data-line="24"></span> <span data-line="24"></span><span class="math-inline">$\neg p$</span><span data-line="24"></span>              </td><td class="tbody tr-odd tr-first col col-even col-last" data-line="24" data-row="1" data-col="2" style="text-align:center"><span data-line="24"></span> <span data-line="24"></span><code class="code code2 language-touist lang-touist touist colorized">not p</code><span data-line="24"></span>         </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="25" data-row="2" data-col="1" style="text-align:center"><span data-line="25"></span> <span data-line="25"></span><span class="math-inline">$p \wedge q$</span><span data-line="25"></span>          </td><td class="tbody tr-even col col-even col-last" data-line="25" data-row="2" data-col="2" style="text-align:center"><span data-line="25"></span> <span data-line="25"></span><code class="code code2 language-touist lang-touist touist colorized">p and q</code><span data-line="25"></span>       </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-line="26" data-row="3" data-col="1" style="text-align:center"><span data-line="26"></span> <span data-line="26"></span><span class="math-inline">$p \vee q$</span><span data-line="26"></span>            </td><td class="tbody tr-odd col col-even col-last" data-line="26" data-row="3" data-col="2" style="text-align:center"><span data-line="26"></span> <span data-line="26"></span><code class="code code2 language-touist lang-touist touist colorized">p or q</code><span data-line="26"></span>        </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="27" data-row="4" data-col="1" style="text-align:center"><span data-line="27"></span> <span data-line="27"></span><span class="math-inline">$p \oplus q$</span><span data-line="27"></span>          </td><td class="tbody tr-even col col-even col-last" data-line="27" data-row="4" data-col="2" style="text-align:center"><span data-line="27"></span> <span data-line="27"></span><code class="code code2 language-touist lang-touist touist colorized">p xor q</code><span data-line="27"></span>       </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-line="28" data-row="5" data-col="1" style="text-align:center"><span data-line="28"></span> <span data-line="28"></span><span class="math-inline">$p \rightarrow q$</span><span data-line="28"></span>     </td><td class="tbody tr-odd col col-even col-last" data-line="28" data-row="5" data-col="2" style="text-align:center"><span data-line="28"></span> <span data-line="28"></span><code class="code code2 language-touist lang-touist touist colorized">p =&gt; q</code><span data-line="28"></span>        </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-line="29" data-row="6" data-col="1" style="text-align:center"><span data-line="29"></span> <span data-line="29"></span><span class="math-inline">$p \leftrightarrow q$</span><span data-line="29"></span> </td><td class="tbody tr-even tr-last col col-even col-last" data-line="29" data-row="6" data-col="2" style="text-align:center"><span data-line="29"></span> <span data-line="29"></span><code class="code code2 language-touist lang-touist touist colorized">p &lt;=&gt; q</code><span data-line="29"></span>       </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-line="30" data-row="6" data-col="1" style="text-align:center"></td><td class="tbody tr-even col cell-line col-even col-last" data-line="30" data-row="6" data-col="2" style="text-align:center"></td></tr></tbody></table></div>
+<p class="p noindent" data-line="35"><span data-line="35"></span>After typing a formula, you can ask <span data-line="35"></span><code class="code code1">touist</code><span data-line="35"></span> to find a valuation (true or false) of each proposition so that the whole formula is true (such valuation, also called <span data-line="35"></span><em class="em-low1">interpretation</em><span data-line="35"></span>, is called <span data-line="35"></span><em class="em-low1">model</em><span data-line="35"></span>). When a model exists, your formula is <span data-line="35"></span><em class="em-low1">satisfiable</em><span data-line="35"></span>. For example, a model of <span data-line="35"></span><span class="math-inline">$p \vee q$</span><span data-line="35"></span> is <span data-line="35"></span><span class="math-inline">$\{p = true,q = false\}$</span><span data-line="35"></span>. To check the models of this formula using <span data-line="35"></span><code class="code code1">touist</code><span data-line="35"></span>, you can do
+</p>
+<div class="center align-center" data-line="37" style="text-align:center"><table class="madoko block" data-line="38">
+<thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="38" data-row="0" data-col="1"></th><th class="thead tr-even col cell-line col-even col-last" data-line="38" data-row="0" data-col="2"></th></tr>
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="39" data-row="1" data-col="1" style="font-weight:bold"><span data-line="39"></span> Graphical Java interface            </th><th class="col thead tr-odd tr-last tr-first col-even col-last" data-line="39" data-row="1" data-col="2" style="font-weight:bold"><span data-line="39"></span> Command-line interface<span data-line="39"></span><sup id="back-fn-stdin" ><a href="#fn-stdin" title="1.You can also use touistc with stdin: echo &#39;p and q&#39; | ./touistc - -sat --solve
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="39"></span>            </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="41" data-row="1" data-col="1"><span data-line="41"></span> 1. Type <span data-line="41"></span><code class="code code2 language-touist lang-touist touist colorized">p and q</code><span data-line="41"></span>                 </td><td class="tbody tr-odd tr-first col col-even col-last" data-line="41" data-row="1" data-col="2"><span data-line="41"></span> 1. Create a file <span data-line="41"></span><code class="code code2 language-touist lang-touist touist colorized">p and q</code><span data-line="41"></span>              </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="42" data-row="2" data-col="1"><span data-line="42"></span> 2. Press <span data-line="42"></span>&#8220;Solve&#8221;<span data-line="42"></span>                    </td><td class="tbody tr-even col col-even col-last" data-line="42" data-row="2" data-col="2"><span data-line="42"></span> 2. Type <span data-line="42"></span><code class="code code1">./touistc -sat --solve yourfile</code><span data-line="42"></span> </td></tr>
+<tr><td class="tbody tr-odd tr-last col col-odd col-first" data-line="43" data-row="3" data-col="1"><span data-line="43"></span> 3. Press <span data-line="43"></span>&#8220;Next&#8221;<span data-line="43"></span> to see other models </td><td class="tbody tr-odd tr-last col col-even col-last" data-line="43" data-row="3" data-col="2"><span data-line="43"></span> 3. The first model is displayed           </td></tr></tbody></table></div><h3 id="sec-simple-inference-checking" class="h2" data-line="48" data-heading-depth="2" style="display:block"><span data-line="48"></span><span class="heading-before"><span class="heading-label">1.1</span>.&#8194;</span><span data-line="48"></span>Simple inference checking</h3>
+<p class="p noindent" data-line="50"><span data-line="50"></span>Checking the truth of a given reasoning (or <span data-line="50"></span><em class="em-low1">inference</em><span data-line="50"></span>) may be handy. From a wikipedia example:
+</p><table class="madoko block" data-line="52">
+<tbody><tr><td class="tbody tr-even col cell-border-left cell-line col-odd col-first" data-row="0" data-col="1" style="text-align:right"></td><td class="tbody tr-even col cell-border-right cell-line col-even col-last" data-row="0" data-col="2" style="text-align:left"></td></tr>
+<tr><td class="tbody tr-odd tr-first col cell-border-left col-odd col-first" data-line="53" data-row="1" data-col="1" style="text-align:right"><span data-line="53"></span><em class="em-star1">Premise 1:</em><span data-line="53"></span>  </td><td class="tbody tr-odd tr-first col cell-border-right col-even col-last" data-line="53" data-row="1" data-col="2" style="text-align:left"><span data-line="53"></span> If it<span data-line="53"></span>&#39;<span data-line="53"></span>s raining then it<span data-line="53"></span>&#39;<span data-line="53"></span>s cloudy </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-line="54" data-row="2" data-col="1" style="text-align:right"><span data-line="54"></span><em class="em-star1">Premise 2:</em><span data-line="54"></span>  </td><td class="tbody tr-even col cell-border-right col-even col-last" data-line="54" data-row="2" data-col="2" style="text-align:left"><span data-line="54"></span> It<span data-line="54"></span>&#39;<span data-line="54"></span>s raining                     </td></tr>
+<tr><td class="tbody tr-odd tr-last col cell-border-left col-odd col-first" data-line="55" data-row="3" data-col="1" style="text-align:right"><span data-line="55"></span><em class="em-star1">Conclusion:</em><span data-line="55"></span> </td><td class="tbody tr-odd tr-last col cell-border-right col-even col-last" data-line="55" data-row="3" data-col="2" style="text-align:left"><span data-line="55"></span> It<span data-line="55"></span>&#39;<span data-line="55"></span>s cloudy                      </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left cell-line col-odd col-first" data-line="56" data-row="3" data-col="1" style="text-align:right"></td><td class="tbody tr-odd col cell-border-right cell-line col-even col-last" data-line="56" data-row="3" data-col="2" style="text-align:left"></td></tr></tbody></table>
+<p class="p noindent para-continue" data-line="58"><span data-line="58"></span>This inference can be written
+</p>
+<div class="math para-block" data-line="60">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="61" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\{ raining \rightarrow cloudy, raining\} \models cloudy
+\]</span></div></div>
+<p class="p noindent para-continued" data-line="64"><span data-line="64"></span>The <span data-line="64"></span><em class="em-low1">infer</em><span data-line="64"></span> symbol (<span data-line="64"></span><span class="math-inline">$\models$</span><span data-line="64"></span>) does not belong to the <span data-line="64"></span><code class="code code1">touist</code><span data-line="64"></span> language (we call it <span data-line="64"></span>&#8220;meta-language&#8221;<span data-line="64"></span>). This means that we have to transform this notation to an actual propositional formula.
+</p>
+<div class="theorem" data-line="66" style="display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="67"><span data-line="67"></span><span class="theorem-before"><strong class="strong-star2">Theorem&#160;<span class="theorem-label">1</span>.</strong> <span class="theorem-caption"></span><br>
+</span><span data-line="67"></span>Let <span data-line="67"></span><span class="math-inline">$H$</span><span data-line="67"></span> be a set of formulas (<span data-line="67"></span><em class="em-low1">hypotheses</em><span data-line="67"></span> or <span data-line="67"></span><em class="em-low1">premises</em><span data-line="67"></span>) and <span data-line="67"></span><span class="math-inline">$C$</span><span data-line="67"></span> a formula (<span data-line="67"></span><em class="em-low1">conclusion</em><span data-line="67"></span>). Then
+</p>
+<div class="center align-center" data-line="68" style="text-align:center">
+<p class="p noindent" data-line="69"><span data-line="69"></span>  <span data-line="69"></span><span class="math-inline">$H \models C$</span><span data-line="69"></span> if and only if <span data-line="69"></span><span class="math-inline">$H\cup\{\neg C\}$</span><span data-line="69"></span> is unsatisfiable.</p></div></div>
+<p class="p noindent para-continue" data-line="73"><span data-line="73"></span>From this theorem, we just have to check that the set of formulas
+</p>
+<div class="math para-block" data-line="74">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="75" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\{ raining \rightarrow cloudy, raining, \neg cloudy \}
+\]</span></div></div>
+<p class="p noindent para-continued" data-line="77"><span data-line="77"></span>has no model. We can translate this set to <span data-line="77"></span><code class="code code1">touist</code><span data-line="77"></span> language (comments begin with two semi-colon <span data-line="77"></span>&#8220;<code class="code code1">;;</code>&#8221;<span data-line="77"></span>): 
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="79" data-line-first="80" style="display:block"><code data-line="80">raining =&gt; cloudy       <span style="color:darkgreen">;; Premise 1</span>
+raining                 <span style="color:darkgreen">;; Premise 2</span>
+not cloudy              <span style="color:darkgreen">;; Conclusion</span></code></pre>
+<div class="note" data-line="85" style="display:block">
+<p class="p noindent" data-line="86"><span data-line="86"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="87"></span>In touist, the premises are simply formulas separated by a new line. A new line is semantically equivalent to the <span data-line="87"></span><code class="code code1">and</code><span data-line="87"></span> connector: the previous bit of <span data-line="87"></span><code class="code code1">touist</code><span data-line="87"></span> code could be equivalently written
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="88" data-line-first="89" style="display:block"><code data-line="89">(raining =&gt; cloudy) and raining and not cloudy  </code></pre></div><h2 id="sec-language-reference" class="h1" data-line="94" data-heading-depth="1" style="display:block"><span data-line="94"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="94"></span>Language reference</h2><h3 id="sec-structure-of-a-touist-file" class="h2" data-line="96" data-heading-depth="2" style="display:block"><span data-line="96"></span><span class="heading-before"><span class="heading-label">2.1</span>.&#8194;</span><span data-line="96"></span>Structure of a touist file</h3>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="98" data-line-first="99" style="display:block"><code data-line="99"><span style="color:purple">&lt;touist-file&gt;</span> ::= <span style="color:purple">&lt;affect&gt;</span> <span style="color:purple">&lt;touist-file&gt;</span>
+                | <span style="color:purple">&lt;formula&gt;</span> <span style="color:purple">&lt;touist-file&gt;</span>
+                | EOF</code></pre>
+<p class="p noindent para-continued" data-line="104"><span data-line="104"></span>A touist file is a whitespace-separated list of affectations and formulas. Affectations are global and cannot be done in nested formulas. They can be anywhere in the file (at the beginning, at the end or interlaced with formulas). A whitespace is a space, tab or newline.<span data-line="104"></span> <span data-line="104"></span> 
+</p>
+<p class="p indent" data-line="106"><span data-line="106"></span>Comments begin with the <span data-line="106"></span>&#8220;<code class="code code2 language-touist lang-touist touist colorized"><span style="color:darkgreen">;;</span></code>&#8221;<span data-line="106"></span> sequence.
+</p><h3 id="sec-affectations" class="h2" data-line="108" data-heading-depth="2" style="display:block"><span data-line="108"></span><span class="heading-before"><span class="heading-label">2.2</span>.&#8194;</span><span data-line="108"></span>Affectations</h3>
+<p class="p noindent" data-line="109"><span data-line="109"></span>Affectations have the following syntax:
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="111" data-line-first="112" style="display:block"><code data-line="112"><span style="color:purple">&lt;affect&gt;</span> ::= <span style="color:purple">&lt;var&gt;</span> &quot;=&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;set&gt;</span>)</code></pre>
+<p class="p noindent para-continued" data-line="115"><span data-line="115"></span>This kind of affectation is global and applies for the whole code, even if the affectation happens after the formulas when the variable appears. These affectations are evaluated before any formula.<span data-line="115"></span> <span data-line="115"></span> 
+</p>
+<p class="p indent" data-line="117"><span data-line="117"></span>The order of affectation is important when you want to use a variable in an affectation expression. For example:
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="119" data-line-first="120" style="display:block"><code data-line="120"><span style="color:purple">$N</span> = <span class="constant" style="color:purple">10</span>
+<span style="color:purple">$set</span> = [<span class="constant" style="color:purple">1</span>..<span style="color:purple">$N</span>]    <span style="color:darkgreen">;; $N must be defined before $set</span></code></pre><h3 id="sec-variables" class="h2" data-line="124" data-heading-depth="2" style="display:block"><span data-line="124"></span><span class="heading-before"><span class="heading-label">2.3</span>.&#8194;</span><span data-line="124"></span>Variables</h3>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="126" data-line-first="127" style="display:block"><code data-line="127">TERM = [_0-9]*[a-zA-Z][a-zA-Z_0-9]*
+<span style="color:purple">&lt;var&gt;</span> ::=
+  | &quot;$&quot; TERM                            <span style="color:darkgreen">(* simple-var *)</span>
+  | &quot;$&quot; TERM &quot;(&quot; <span style="color:purple">&lt;comma-list(&lt;float&gt;</span>|<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;prop&gt;)&gt;</span> &quot;)&quot; <span style="color:darkgreen">(* tuple-var *)</span></code></pre>
+<dl class="dl compact" data-line="133">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Simple variables (&#8220;simple-var&#8221;)</dt>
+<dd class="dd" data-line="133" style="margin-left:1.5em"><span data-line="133"></span>Of the form <span data-line="133"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$var</span></code><span data-line="133"></span>
+</dd>
+<dd class="dd" data-line="135" style="margin-left:1.5em"><span data-line="135"></span>In a formula, it is expected to contain a proposition
+</dd>
+<dd class="dd" data-line="136" style="margin-left:1.5em"><span data-line="136"></span>In an expression, it can contain an integer, a float, a prop or a set
+</dd>
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Tuple variable (&#8220;tuple-var&#8221;)</dt>
+<dd class="dd" data-line="137" style="margin-left:1.5em"><span data-line="137"></span>Of the form <span data-line="137"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$var</span>(<span style="color:purple">$i</span>,a,<span class="constant" style="color:purple">4</span>)</code><span data-line="137"></span>
+</dd>
+<dd class="dd" data-line="139" style="margin-left:1.5em"><span data-line="139"></span>The leading variable (e.g., <span data-line="139"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$var</span></code><span data-line="139"></span>) must contain a proposition
+</dd>
+<dd class="dd" data-line="140" style="margin-left:1.5em"><span data-line="140"></span>It will always be expanded to a proposition. For example, if <span data-line="140"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$var</span>=p</code><span data-line="140"></span> and <span data-line="140"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$i</span>=q</code><span data-line="140"></span>, then it will expand to <span data-line="140"></span><code class="code code2 language-touist lang-touist touist colorized">p(q,a,<span class="constant" style="color:purple">4</span>)</code><span data-line="140"></span>
+</dd>
+<dd class="dd" data-line="141" style="margin-left:1.5em"><span data-line="141"></span>The nested indices (e.g., <span data-line="141"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$i</span></code><span data-line="141"></span>) can be either a integer, float, proposition or boolean</dd></dl>
+<p class="p noindent" data-line="143"><span data-line="143"></span>Here are some examples of variables:
+</p><table class="madoko block" data-line="145">
+<thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="145" data-row="0" data-col="1" style="text-align:center"></th><th class="thead tr-even col cell-line col-even col-last" data-line="145" data-row="0" data-col="2" style="text-align:center"></th></tr>
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="146" data-row="1" data-col="1" style="font-weight:bold;text-align:center"><span data-line="146"></span> Simple-var  </th><th class="col thead tr-odd tr-last tr-first col-even col-last" data-line="146" data-row="1" data-col="2" style="font-weight:bold;text-align:center"><span data-line="146"></span> Tuple-var           </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1" style="text-align:center"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2" style="text-align:center"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="148" data-row="1" data-col="1" style="text-align:center"><span data-line="148"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$N</span></code><span data-line="148"></span>       </td><td class="tbody tr-odd tr-first col col-even col-last" data-line="148" data-row="1" data-col="2" style="text-align:center"><span data-line="148"></span> <span data-line="148"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$place</span>(<span style="color:purple">$number</span>)</code><span data-line="148"></span> </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="149" data-row="2" data-col="1" style="text-align:center"><span data-line="149"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$time</span></code><span data-line="149"></span>    </td><td class="tbody tr-even col col-even col-last" data-line="149" data-row="2" data-col="2" style="text-align:center"><span data-line="149"></span> <span data-line="149"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$action</span>(<span style="color:purple">$i</span>,<span style="color:purple">$j</span>)</code><span data-line="149"></span>  </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-line="150" data-row="3" data-col="1" style="text-align:center"><span data-line="150"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$SIZE</span></code><span data-line="150"></span>    </td><td class="tbody tr-odd col col-even col-last" data-line="150" data-row="3" data-col="2" style="text-align:center"><span data-line="150"></span>                     </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-line="151" data-row="4" data-col="1" style="text-align:center"><span data-line="151"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:purple">$is_over</span></code><span data-line="151"></span> </td><td class="tbody tr-even tr-last col col-even col-last" data-line="151" data-row="4" data-col="2" style="text-align:center"><span data-line="151"></span>                     </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-line="152" data-row="4" data-col="1" style="text-align:center"></td><td class="tbody tr-even col cell-line col-even col-last" data-line="152" data-row="4" data-col="2" style="text-align:center"></td></tr></tbody></table><h3 id="sec-propositions" class="h2" data-line="154" data-heading-depth="2" style="display:block"><span data-line="154"></span><span class="heading-before"><span class="heading-label">2.4</span>.&#8194;</span><span data-line="154"></span>Propositions</h3>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="156" data-line-first="157" style="display:block"><code data-line="157">TERM = [_0-9]*[a-zA-Z][a-zA-Z_0-9]*
+<span style="color:purple">&lt;prop&gt;</span> ::=
+    | <span style="color:purple">&lt;var&gt;</span>
+    | TERM
+    | TERM &quot;(&quot; <span style="color:purple">&lt;comma-list(&lt;float&gt;</span> | <span style="color:purple">&lt;int&gt;</span> | <span style="color:purple">&lt;prop&gt;)&gt;</span> &quot;)&quot;</code></pre>
+<p class="p noindent para-continued" data-line="164"><span data-line="164"></span>A simple proposition is a simple word that can contain numbers and the underscore symbol (<span data-line="164"></span>&#8220;<code class="code code1">_</code>&#8221;<span data-line="164"></span>).
+A tuple proposition (we can it as a <span data-line="165"></span><em class="em-low1">predicate</em><span data-line="165"></span>), of the form <span data-line="165"></span><code class="code code1">prop(1,$i,abc)</code><span data-line="165"></span>, must have indices of type integer, float, boolean or set.
+</p>
+<div class="note" data-line="167" style="display:block">
+<p class="p noindent" data-line="168"><span data-line="168"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="169"></span>A tuple proposition that is in an expression and that contains at least one set in its indices will be expanded to a set of the cartesian product of the set indices. In the following table, the two right-columns show how the propositions are expanded whether they are in an expression or in a formula:
+</p>
+<div class="center align-center" data-line="171" style="text-align:center"><table class="madoko block" data-line="172">
+<thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="172" data-row="0" data-col="1"></th><th class="thead tr-even col cell-line col-even" data-line="172" data-row="0" data-col="2"></th><th class="thead tr-even col cell-line col-odd col-last" data-line="172" data-row="0" data-col="3"></th></tr>
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="173" data-row="1" data-col="1" style="font-weight:bold"><span data-line="173"></span> Proposition        </th><th class="col thead tr-odd tr-last tr-first col-even" data-line="173" data-row="1" data-col="2" style="font-weight:bold"><span data-line="173"></span> is in a formula     </th><th class="col thead tr-odd tr-last tr-first col-odd col-last" data-line="173" data-row="1" data-col="3" style="font-weight:bold"><span data-line="173"></span> is in an expression   </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-row="0" data-col="2"></td><td class="tbody tr-even col cell-line col-odd col-last" data-row="0" data-col="3"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="175" data-row="1" data-col="1"><span data-line="175"></span> <span data-line="175"></span><code class="code code2 language-touist lang-touist touist colorized">p([a])</code><span data-line="175"></span>         </td><td class="tbody tr-odd tr-first col col-even" data-line="175" data-row="1" data-col="2"><span data-line="175"></span> <span data-line="175"></span><code class="code code2 language-touist lang-touist touist colorized">p([a])</code><span data-line="175"></span>          </td><td class="tbody tr-odd tr-first col col-odd col-last" data-line="175" data-row="1" data-col="3"><span data-line="175"></span> <span data-line="175"></span><code class="code code2 language-touist lang-touist touist colorized">p(a)</code><span data-line="175"></span>              </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="176" data-row="2" data-col="1"><span data-line="176"></span><code class="code code2 language-touist lang-touist touist colorized">p([a,b,c])</code><span data-line="176"></span>      </td><td class="tbody tr-even col col-even" data-line="176" data-row="2" data-col="2"><span data-line="176"></span> <span data-line="176"></span><code class="code code2 language-touist lang-touist touist colorized">p([a,b,c])</code><span data-line="176"></span>      </td><td class="tbody tr-even col col-odd col-last" data-line="176" data-row="2" data-col="3"><span data-line="176"></span><code class="code code2 language-touist lang-touist touist colorized">[p(a),p(b),p(c)]</code><span data-line="176"></span>   </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-line="177" data-row="3" data-col="1"><span data-line="177"></span><code class="code code2 language-touist lang-touist touist colorized">p([a,b],[<span class="constant" style="color:purple">1</span>..<span class="constant" style="color:purple">2</span>])</code><span data-line="177"></span> </td><td class="tbody tr-odd col col-even" data-line="177" data-row="3" data-col="2"><span data-line="177"></span> <span data-line="177"></span><code class="code code2 language-touist lang-touist touist colorized">p([a,b],[<span class="constant" style="color:purple">1</span>..<span class="constant" style="color:purple">2</span>])</code><span data-line="177"></span> </td><td class="tbody tr-odd col col-odd col-last" data-line="177" data-row="3" data-col="3"><span data-line="177"></span><code class="code code2 language-touist lang-touist touist colorized">[p(a,<span class="constant" style="color:purple">1</span>),p(b,<span class="constant" style="color:purple">1</span>)</code><span data-line="177"></span>     </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-line="178" data-row="4" data-col="1"><span data-line="178"></span>                    </td><td class="tbody tr-even tr-last col col-even" data-line="178" data-row="4" data-col="2"><span data-line="178"></span>                     </td><td class="tbody tr-even tr-last col col-odd col-last" data-line="178" data-row="4" data-col="3"><span data-line="178"></span> <span data-line="178"></span>&#160;<span data-line="178"></span> <span data-line="178"></span><code class="code code2 language-touist lang-touist touist colorized">p(a,<span class="constant" style="color:purple">2</span>),p(b,<span class="constant" style="color:purple">2</span>)]</code><span data-line="178"></span> </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-line="179" data-row="4" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-line="179" data-row="4" data-col="2"></td><td class="tbody tr-even col cell-line col-odd col-last" data-line="179" data-row="4" data-col="3"></td></tr></tbody></table></div></div><h3 id="sec-numeric-expression" class="h2" data-line="183" data-heading-depth="2" style="display:block"><span data-line="183"></span><span class="heading-before"><span class="heading-label">2.5</span>.&#8194;</span><span data-line="183"></span>Numeric expression</h3>
+<p class="p noindent" data-line="185"><span data-line="185"></span>The available operations on integers and floats are <span data-line="185"></span><code class="code code1">+</code><span data-line="185"></span>, <span data-line="185"></span><code class="code code1">-</code><span data-line="185"></span>, <span data-line="185"></span><code class="code code1">*</code><span data-line="185"></span>, <span data-line="185"></span><code class="code code1">/</code><span data-line="185"></span>, <span data-line="185"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">mod</span></code><span data-line="185"></span> (modulo) and <span data-line="185"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">abs</span>()</code><span data-line="185"></span> (absolute value).
+</p>
+<p class="p indent" data-line="187"><span data-line="187"></span>Here is the complete rules for numeric operators:
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="188" data-line-first="189" style="display:block"><code data-line="189"><span style="color:purple">&lt;num-operation(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;+&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;-&quot; <span style="color:purple">&lt;T&gt;</span>
+    |     &quot;-&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;*&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;/&quot; <span style="color:purple">&lt;T&gt;</span>
+<span style="color:purple">&lt;num-operation-others(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;mod&quot; <span style="color:purple">&lt;T&gt;</span>
+    | &quot;abs(&quot; <span style="color:purple">&lt;T&gt;</span> &quot;)&quot;</code></pre>
+<div class="note" data-line="200" style="display:block">
+<p class="p noindent" data-line="201"><span data-line="201"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="202"></span>Integer and float expressions cannot be mixed. It is necessary to cast explicitely to the other type when the types are not matching. For example, the expression <span data-line="202"></span><code class="code code2 language-touist lang-touist touist colorized"><span class="constant" style="color:purple">1</span>+<span class="constant" style="color:purple">2.0</span></code><span data-line="202"></span> is  invalid and should be written <span data-line="202"></span><code class="code code2 language-touist lang-touist touist colorized"><span class="constant" style="color:purple">1</span>+<span style="color:blue">int</span>(<span class="constant" style="color:purple">2.0</span>)</code><span data-line="202"></span> (gives an integer) or <span data-line="202"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">float</span>(<span class="constant" style="color:purple">1</span>)+<span class="constant" style="color:purple">2.0</span></code><span data-line="202"></span> (gives a float). Some operators are specific to integer or float types:
+</p>
+<ul class="ul list-star compact" data-line="204">
+<li class="li ul-li list-star-li compact-li" data-line="204"><span data-line="204"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">card</span>([a,b])</code><span data-line="204"></span> returns an integer,
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="205"><span data-line="205"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">sqrt</span>(<span class="constant" style="color:purple">3</span>)</code><span data-line="205"></span> returns a float.</li></ul></div><h4 id="sec-integers" class="h3" data-line="207" data-heading-depth="3" style="display:block"><span data-line="207"></span><span class="heading-before"><span class="heading-label">2.5.1</span>.&#8194;</span><span data-line="207"></span>Integers</h4>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="208" data-line-first="209" style="display:block"><code data-line="209"><span style="color:purple">&lt;int&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | INT
+    | num-operation(<span style="color:purple">&lt;int&gt;</span>)
+    | num-operation-others(<span style="color:purple">&lt;int&gt;</span>)
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;int&gt;</span> &quot;else&quot; <span style="color:purple">&lt;int&gt;</span> &quot;end&quot;
+    | &quot;int(&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>) &quot;)&quot;
+    | &quot;card(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;</code></pre><h4 id="sec-floats" class="h3" data-line="220" data-heading-depth="3" style="display:block"><span data-line="220"></span><span class="heading-before"><span class="heading-label">2.5.2</span>.&#8194;</span><span data-line="220"></span>Floats</h4>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="222" data-line-first="223" style="display:block"><code data-line="223"><span style="color:purple">&lt;float&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;float&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | FLOAT
+    | num-operation(<span style="color:purple">&lt;float&gt;</span>)
+    | num-operation-others(<span style="color:purple">&lt;float&gt;</span>)
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;float&gt;</span> &quot;else&quot; <span style="color:purple">&lt;float&gt;</span> &quot;end&quot;
+    | &quot;float(&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>)  &quot;)&quot;
+    | &quot;sqrt(&quot; <span style="color:purple">&lt;float&gt;</span> &quot;)&quot;</code></pre><h4 id="sec-booleans" class="h3" data-line="234" data-heading-depth="3" style="display:block"><span data-line="234"></span><span class="heading-before"><span class="heading-label">2.5.3</span>.&#8194;</span><span data-line="234"></span>Booleans</h4>
+<p class="p noindent" data-line="236"><span data-line="236"></span>The constants are <span data-line="236"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">true</span></code><span data-line="236"></span> and <span data-line="236"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">false</span></code><span data-line="236"></span>. The boolean connectors are <span data-line="236"></span><span class="math-inline">$&gt;$</span><span data-line="236"></span>,<span data-line="236"></span><span class="math-inline">$&lt;$</span><span data-line="236"></span>,<span data-line="236"></span><span class="math-inline">$\ge$</span><span data-line="236"></span> (<span data-line="236"></span><code class="code code1">&gt;=</code><span data-line="236"></span>),<span data-line="236"></span><span class="math-inline">$\le$</span><span data-line="236"></span> (<span data-line="236"></span><code class="code code1">&lt;=</code><span data-line="236"></span>),<span data-line="236"></span><span class="math-inline">$=$</span><span data-line="236"></span> (<span data-line="236"></span><code class="code code1">==</code><span data-line="236"></span>) and <span data-line="236"></span><span class="math-inline">$\neq$</span><span data-line="236"></span> (<span data-line="236"></span><code class="code code1">!=</code><span data-line="236"></span>). The operators that return a boolean are <span data-line="236"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">subset</span>(,)</code><span data-line="236"></span>, <span data-line="236"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">empty</span>()</code><span data-line="236"></span> and <span data-line="236"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">in</span></code><span data-line="236"></span>.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="238" data-line-first="239" style="display:block"><code data-line="239"><span style="color:purple">&lt;bool&gt;</span> ::= &quot;(&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | &quot;true&quot;
+    | &quot;false&quot;
+    | (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>) &quot;in&quot; <span style="color:purple">&lt;set&gt;</span>
+    | &quot;subset(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;empty(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;equality(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;)&gt;</span>
+    | <span style="color:purple">&lt;order(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;)&gt;</span>
+    | <span style="color:purple">&lt;connectors(&lt;bool&gt;)&gt;</span>
+<span style="color:purple">&lt;equality(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;!=&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;==&quot; <span style="color:purple">&lt;T&gt;</span>
+<span style="color:purple">&lt;order(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&gt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;=&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&gt;=&quot; <span style="color:purple">&lt;T&gt;</span></code></pre>
+<div class="note" data-line="259" style="display:block">
+<p class="p noindent" data-line="260"><span data-line="260"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="261"></span>Booleans cannot be mixed with formulas. In a formula, the evaluation (choosing true or false) is not done during the translation from touist to the <span data-line="261"></span>&#8220;solver-friendly&#8221;<span data-line="261"></span> language. Conversely, a boolean expression must be evaluable during the translation.</p></div><h4 id="sec-sets" class="h3" data-line="263" data-heading-depth="3" style="display:block"><span data-line="263"></span><span class="heading-before"><span class="heading-label">2.5.4</span>.&#8194;</span><span data-line="263"></span>Sets</h4>
+<p class="p noindent" data-line="265"><span data-line="265"></span>Sets can contain anything (propositions, integers, floats, booleans or even other sets) as long as all elements have the same type.
+</p>
+<p class="p indent" data-line="267"><span data-line="267"></span>Along with the previously mentionned <span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">card</span>(x)</code><span data-line="267"></span>, <span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">empty</span>()</code><span data-line="267"></span>, <span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">in</span></code><span data-line="267"></span> and <span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">subset</span>(,)</code><span data-line="267"></span>, common operations on sets are available: <span data-line="267"></span><span class="math-inline">$P \cup Q$</span><span data-line="267"></span> (<span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">inter</span>(<span style="color:purple">$P</span>,<span style="color:purple">$Q</span>)</code><span data-line="267"></span>), <span data-line="267"></span><span class="math-inline">$P \cap Q$</span><span data-line="267"></span> (<span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">inter</span>(<span style="color:purple">$P</span>,<span style="color:purple">$Q</span>)</code><span data-line="267"></span>), <span data-line="267"></span><span class="math-inline">$P \setminus Q$</span><span data-line="267"></span> (<span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">diff</span>(<span style="color:purple">$P</span>,<span style="color:purple">$Q</span>)</code><span data-line="267"></span>) and <span data-line="267"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">powerset</span>(<span style="color:purple">$P</span>)</code><span data-line="267"></span>. 
+</p>
+<p class="p indent" data-line="269"><span data-line="269"></span>Here is a description of the non-obvious operators: 
+</p>
+<ul class="ul list-star compact" data-line="271">
+<li class="li ul-li list-star-li compact-li" data-line="271"><span data-line="271"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">powerset</span>(<span style="color:purple">$P</span>)</code><span data-line="271"></span> computes the set of all possible subsets of the set <span data-line="271"></span><span class="math-inline">$P$</span><span data-line="271"></span>
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="272"><span data-line="272"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">subset</span>(<span style="color:purple">$P</span>,<span style="color:purple">$Q</span>)</code><span data-line="272"></span> returns <span data-line="272"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">true</span></code><span data-line="272"></span> if <span data-line="272"></span><span class="math-inline">$P \subset Q$</span><span data-line="272"></span>
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="273"><span data-line="273"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">empty</span>(<span style="color:purple">$P</span>)</code><span data-line="273"></span> returns <span data-line="273"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">true</span></code><span data-line="273"></span> if <span data-line="273"></span><span class="math-inline">$P$</span><span data-line="273"></span> is empty
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="274"><span data-line="274"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">card</span>(<span style="color:purple">$P</span>)</code><span data-line="274"></span> returns the cardinal of <span data-line="274"></span><span class="math-inline">$P$</span><span data-line="274"></span>
+</li></ul>
+
+<p class="p noindent" data-line="276"><span data-line="276"></span>Here is the complete rule:
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="277" data-line-first="278" style="display:block"><code data-line="278"><span style="color:purple">&lt;set&gt;</span> ::= &quot;(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | &quot;[&quot; <span style="color:purple">&lt;comma-list(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;bool&gt;)&gt;</span> &quot;]&quot;
+    | &quot;[ <span style="color:purple">&lt;int&gt;</span> &quot;..&quot; <span style="color:purple">&lt;int&gt;</span> &quot;]&quot;
+    | &quot;union(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;inter(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;diff(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;powerset(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;</code></pre><h3 id="sec-formulas" class="h2" data-line="288" data-heading-depth="2" style="display:block"><span data-line="288"></span><span class="heading-before"><span class="heading-label">2.6</span>.&#8194;</span><span data-line="288"></span>Formulas</h3><h4 id="sec-connectors" class="h3" data-line="290" data-heading-depth="3" style="display:block"><span data-line="290"></span><span class="heading-before"><span class="heading-label">2.6.1</span>.&#8194;</span><span data-line="290"></span>Connectors</h4>
+<p class="p noindent" data-line="291"><span data-line="291"></span>A formula is a sequence of propositions (that can be variables) and connectors <span data-line="291"></span><span class="math-inline">$\neg p$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">not</code><span data-line="291"></span>), <span data-line="291"></span><span class="math-inline">$\wedge$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">and</code><span data-line="291"></span>), <span data-line="291"></span><span class="math-inline">$\vee$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">or</code><span data-line="291"></span>), <span data-line="291"></span><span class="math-inline">$\oplus$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">xor</code><span data-line="291"></span>), <span data-line="291"></span><span class="math-inline">$\rightarrow$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">=&gt;</code><span data-line="291"></span>) or <span data-line="291"></span><span class="math-inline">$\leftrightarrow$</span><span data-line="291"></span> (<span data-line="291"></span><code class="code code2 language-touist lang-touist touist colorized">&lt;=&gt;</code><span data-line="291"></span>).<span data-line="291"></span> <span data-line="291"></span> 
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="293" data-line-first="294" style="display:block"><code data-line="294"><span style="color:purple">&lt;connectors(&lt;T&gt;)&gt;</span> ::=
+    |     &quot;not&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;and&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;or&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;xor&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;=&gt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;=&gt;&quot; <span style="color:purple">&lt;T&gt;</span></code></pre><h4 id="sec-generalized-connectors" class="h3" data-line="302" data-heading-depth="3" style="display:block"><span data-line="302"></span><span class="heading-before"><span class="heading-label">2.6.2</span>.&#8194;</span><span data-line="302"></span>Generalized connectors</h4>
+<p class="p noindent" data-line="303"><span data-line="303"></span>Generalized connectors <span data-line="303"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">bigand</span></code><span data-line="303"></span>, <span data-line="303"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">bigor</span></code><span data-line="303"></span>, <span data-line="303"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">exact</span></code><span data-line="303"></span>, <span data-line="303"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">atmost</span></code><span data-line="303"></span> and <span data-line="303"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">atleast</span></code><span data-line="303"></span> are also available for generalizing the formulas using sets. Here is the rule for these:
+</p>
+<pre class="para-block margin pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="305" data-line-first="306" style="display:block"><code data-line="306"><span style="color:purple">&lt;generalized-connectors(&lt;T&gt;)&gt;</span> ::=
+    | &quot;bigand&quot; <span style="color:purple">&lt;comma-list(&lt;var&gt;)&gt;</span> &quot;in&quot; <span style="color:purple">&lt;comma-list(&lt;set&gt;)&gt;</span>
+                             [&quot;when&quot; <span style="color:purple">&lt;bool&gt;</span>] &quot;:&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | &quot;bigor&quot; <span style="color:purple">&lt;comma-list(&lt;var&gt;)&gt;</span> &quot;in&quot; <span style="color:purple">&lt;comma-list(&lt;set&gt;)&gt;</span>
+                             [&quot;when&quot; <span style="color:purple">&lt;bool&gt;</span>] &quot;:&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | &quot;exact(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;atmost(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;atleast(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;</code></pre><h5 id="sec-bigand-and-bigor" class="h4" data-line="316" data-heading-depth="4" style="display:block"><span data-line="316"></span>Bigand and bigor</h5>
+<p class="p noindent" data-line="318"><span data-line="318"></span>When multiple variables and sets are given, the <span data-line="318"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">bigand</span></code><span data-line="318"></span> and <span data-line="318"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">bigor</span></code><span data-line="318"></span> operators will produce the <span data-line="318"></span><code class="code code2 language-touist lang-touist touist colorized">and</code><span data-line="318"></span>/<span data-line="318"></span><code class="code code2 language-touist lang-touist touist colorized">or</code><span data-line="318"></span> sequence for each possible couple of value of each set (the set of couples is the cartesian product of the given sets). For example,
+</p>
+<div class="center align-center" data-line="320" style="text-align:center"><table class="madoko block" data-line="321">
+<thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="321" data-row="0" data-col="1"></th><th class="thead tr-even col cell-border-left cell-line col-even col-last" data-line="321" data-row="0" data-col="2"></th></tr>
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="322" data-row="1" data-col="1" style="font-weight:bold"><span data-line="322"></span> The formula                                                      </th><th class="col cell-border-left thead tr-odd tr-last tr-first col-even col-last" data-line="322" data-row="1" data-col="2" style="font-weight:bold"><span data-line="322"></span> expands to<span data-line="322"></span>&#8230;<span data-line="322"></span>                                          </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-border-left cell-line col-even col-last" data-row="0" data-col="2"></td></tr>
+<tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="324" data-row="1" data-col="1"><span data-line="324"></span> <span data-line="324"></span><span class="math-inline">$\bigwedge\limits_{\substack{i\in [1..2]\\j \in [a,b]}} p_{i,j}$</span><span data-line="324"></span> </td><td class="tbody tr-odd tr-first col cell-border-left col-even col-last" data-line="324" data-row="1" data-col="2"><span data-line="324"></span> <span data-line="324"></span><span class="math-inline">$p_{1,a} \wedge p_{1,b} \wedge p_{2,a} \wedge p_{2,b}$</span><span data-line="324"></span> </td></tr>
+<tr><td class="tbody tr-odd tr-first col cell-line col-odd col-first" data-line="325" data-row="1" data-col="1"></td><td class="tbody tr-odd tr-first col cell-border-left cell-line col-even col-last" data-line="325" data-row="1" data-col="2"></td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="326" data-row="2" data-col="1"><span data-line="326"></span> <span data-line="326"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">bigand</span> <span style="color:purple">$i</span>,<span style="color:purple">$j</span> <span style="color:blue">in</span> [<span class="constant" style="color:purple">1</span>..<span class="constant" style="color:purple">2</span>],[a,b]:</code><span data-line="326"></span>                                </td><td class="tbody tr-even col cell-border-left col-even col-last" data-line="326" data-row="2" data-col="2"><span data-line="326"></span> <span data-line="326"></span><code class="code code2 language-touist lang-touist touist colorized">p(<span class="constant" style="color:purple">1</span>,a) and p(<span class="constant" style="color:purple">1</span>,b) </code><span data-line="326"></span>                                 </td></tr>
+<tr><td class="tbody tr-odd col col-odd col-first" data-line="327" data-row="3" data-col="1"><span data-line="327"></span> <span data-line="327"></span><code class="code code2 language-touist lang-touist touist colorized">p(i,j)</code><span data-line="327"></span>                                                       </td><td class="tbody tr-odd col cell-border-left col-even col-last" data-line="327" data-row="3" data-col="2"><span data-line="327"></span> <span data-line="327"></span><code class="code code2 language-touist lang-touist touist colorized">and p(<span class="constant" style="color:purple">2</span>,a) and p(<span class="constant" style="color:purple">2</span>,b)</code><span data-line="327"></span>                              </td></tr>
+<tr><td class="tbody tr-even tr-last col col-odd col-first" data-line="328" data-row="4" data-col="1"><span data-line="328"></span> <span data-line="328"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">end</span></code><span data-line="328"></span>                                                          </td><td class="tbody tr-even tr-last col cell-border-left col-even col-last" data-line="328" data-row="4" data-col="2"><span data-line="328"></span>                                                        </td></tr>
+<tr><td class="tbody tr-even col cell-line col-odd col-first" data-line="329" data-row="4" data-col="1"></td><td class="tbody tr-even col cell-border-left cell-line col-even col-last" data-line="329" data-row="4" data-col="2"></td></tr></tbody></table></div>
+<p class="p noindent" data-line="332"><span data-line="332"></span>The <span data-line="332"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">when</span></code><span data-line="332"></span> is optional and allows to apply a condition to each couple of valued variable.
+</p>
+<p class="p indent" data-line="334"><span data-line="334"></span>On the following two examples, the math expression is given on the left and the matching touist code is given on the right: 
+</p><table class="columns block" data-line="336">
+<tbody><tr><td class="column" data-line="337" style="width:40%">
+<p class="p noindent" data-line="338"><span data-line="338"></span><span class="math-inline">$\bigwedge\limits_{\substack{i\in [1..n]\\j \in [a,b,c]}} p_{i,j}$</span></p></td><td class="column" data-line="340">
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="341" data-line-first="342" style="display:block"><code data-line="342"><span style="color:blue">bigand</span> <span style="color:purple">$i</span>,<span style="color:purple">$j</span> <span style="color:blue">in</span> [<span class="constant" style="color:purple">1</span>..<span style="color:purple">$n</span>],[a,b,c]:
+    p(<span style="color:purple">$i</span>,<span style="color:purple">$j</span>)
+<span style="color:blue">end</span></code></pre></td></tr></tbody></table><table class="columns block" data-line="348">
+<tbody><tr><td class="column" data-line="349" style="width:40%">
+<p class="p noindent" data-line="350"><span data-line="350"></span><span class="math-inline">$\bigvee\limits_{\substack{v\in [A,B,C]\\x \in [1..9]\\y\in[3..4]\\x \ne y \\ x \ne A\\}} v_{x,y}$</span></p></td><td class="column" data-line="352">
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="353" data-line-first="354" style="display:block"><code data-line="354"><span style="color:blue">bigor</span> <span style="color:purple">$v</span>,<span style="color:purple">$x</span>,<span style="color:purple">$y</span>
+      <span style="color:blue">in</span> [A,B,C],[<span class="constant" style="color:purple">1</span>..<span class="constant" style="color:purple">9</span>],[<span class="constant" style="color:purple">3</span>..<span class="constant" style="color:purple">4</span>] 
+      <span style="color:blue">when</span> <span style="color:purple">$v</span>!=A and <span style="color:purple">$x</span>!=<span style="color:purple">$y</span>:
+    <span style="color:purple">$v</span>(<span style="color:purple">$x</span>)
+<span style="color:blue">end</span></code></pre></td></tr></tbody></table><h5 id="sec-exact-atmost-and-atleast" class="h4" data-line="363" data-heading-depth="4" style="display:block"><span data-line="363"></span>Exact, atmost and atleast</h5>
+<p class="p noindent" data-line="365"><span data-line="365"></span>The operator <span data-line="365"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">exact</span>(<span class="constant" style="color:purple">3</span>,[a,b,c,d,e])</code><span data-line="365"></span> will produce the formula that ensures that, for any valuation, exactly 3 propositions can be <span data-line="365"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">true</span></code><span data-line="365"></span> simultanously. The operator <span data-line="365"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">atleast</span></code><span data-line="365"></span> ensures that at least N propositions are <span data-line="365"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">true</span></code><span data-line="365"></span> simultanously, and <span data-line="365"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">atmost</span></code><span data-line="365"></span> does the opposite.
+</p>
+<div class="note" data-line="367" style="display:block">
+<p class="p noindent" data-line="368"><span data-line="368"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="369"></span>(TODO) explain the cases N=0 or empty set</p></div><h4 id="sec-simple-formulas" class="h3" data-line="371" data-heading-depth="3" style="display:block"><span data-line="371"></span><span class="heading-before"><span class="heading-label">2.6.3</span>.&#8194;</span><span data-line="371"></span>Simple formulas</h4>
+<p class="p noindent" data-line="373"><span data-line="373"></span>The constants <span data-line="373"></span><span class="math-inline">$\top$</span><span data-line="373"></span> (<span data-line="373"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">Top</span></code><span data-line="373"></span>) and <span data-line="373"></span><span class="math-inline">$\bot$</span><span data-line="373"></span> (<span data-line="373"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">Bot</span></code><span data-line="373"></span>) allows to express the <span data-line="373"></span>&#8220;always true&#8221;<span data-line="373"></span> and <span data-line="373"></span>&#8220;always false&#8221;<span data-line="373"></span>. Here is the complete grammar:
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="375" data-line-first="376" style="display:block"><code data-line="376"><span style="color:purple">&lt;formula-simple&gt;</span> ::=
+    | &quot;Top&quot;
+    | &quot;Bot&quot;
+    | <span style="color:purple">&lt;prop&gt;</span>
+    | <span style="color:purple">&lt;var&gt;</span>
+    | <span style="color:purple">&lt;formula(&lt;formula-simple&gt;)&gt;</span>
+
+<span style="color:purple">&lt;formula(&lt;T&gt;)&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;T&gt;</span> &quot;)&quot;
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;T&gt;</span> &quot;else&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | <span style="color:purple">&lt;connectors(&lt;T&gt;)&gt;</span>
+    | <span style="color:purple">&lt;generalized-connectors(&lt;T&gt;)&gt;</span>
+    | <span style="color:purple">&lt;let-affect(&lt;T&gt;)&gt;</span>
+</code></pre><h4 id="sec-smt-formulas" class="h3" data-line="391" data-heading-depth="3" style="display:block"><span data-line="391"></span><span class="heading-before"><span class="heading-label">2.6.4</span>.&#8194;</span><span data-line="391"></span>SMT formulas</h4>
+<p class="p noindent" data-line="393"><span data-line="393"></span>Touist can also be given SMT formulas and output the SMT2-compliant file.
+(TODO)
+</p><h4 id="sec-local-variables" class="h3" data-line="396" data-heading-depth="3" style="display:block"><span data-line="396"></span><span class="heading-before"><span class="heading-label">2.6.5</span>.&#8194;</span><span data-line="396"></span>Local variables</h4>
+<p class="p noindent" data-line="397"><span data-line="397"></span>Sometimes, you want to use the same result in multiple places. You might not be able to use a global affectation (presented above) because you are in a nested formula. The <span data-line="397"></span><code class="code code2 language-touist lang-touist touist colorized"><span style="color:blue">let</span></code><span data-line="397"></span> construct lets you create temporary variables inside formulas.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="399" data-line-first="400" style="display:block"><code data-line="400"><span style="color:purple">&lt;let-affect&lt;T&gt;&gt;</span> ::=
+    | &quot;let&quot; <span style="color:purple">&lt;var&gt;</span> &quot;=&quot; <span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;set&gt;</span> &quot;:&quot; <span style="color:purple">&lt;formula&lt;T&gt;&gt;</span></code></pre>
+<p class="p noindent para-continued" data-line="404"><span data-line="404"></span>Example: 
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-touist lang-touist touist colorized" data-line="405" data-line-first="406" style="display:block"><code data-line="406"><span style="color:darkgreen">;; This piece of code has no actual meaning</span>
+<span style="color:purple">$letters</span> = [a,b,c,d,e]
+<span style="color:blue">bigand</span> <span style="color:purple">$letter</span>,<span style="color:purple">$number</span> <span style="color:blue">in</span> <span style="color:purple">$letters</span>,[<span class="constant" style="color:purple">1</span>..<span style="color:blue">card</span>(<span style="color:purple">$letters</span>)]:
+  has(<span style="color:purple">$letter</span>,<span style="color:purple">$number</span>) =&gt;
+  <span style="color:blue">let</span> <span style="color:purple">$without_letter</span> = <span style="color:blue">diff</span>(<span style="color:purple">$letters</span>,<span style="color:purple">$letter</span>): <span style="color:darkgreen">;; keep temorary result</span>
+  <span style="color:blue">bigand</span> <span style="color:purple">$l1</span> <span style="color:blue">in</span> <span style="color:purple">$without_letter</span>:
+      p(<span style="color:purple">$letter</span>) 
+  <span style="color:blue">end</span>
+<span style="color:blue">end</span></code></pre><h3 id="sec-formal-grammar" class="h2" data-line="418" data-heading-depth="2" style="display:block"><span data-line="418"></span><span class="heading-before"><span class="heading-label">2.7</span>.&#8194;</span><span data-line="418"></span>Formal grammar</h3>
+<p class="p noindent" data-line="420"><span data-line="420"></span>This section presents the grammar formatted in a BNF-like way. Some rules (<span data-line="420"></span>&#8220;<code class="code code1">::=</code>&#8221;<span data-line="420"></span>) are parametrized so that some parts of the grammar are <span data-line="420"></span>&#8220;factorized&#8221;<span data-line="420"></span> (the idea of parametrized rules come from the Menhir parser generator used for generating the touist parser).
+</p>
+<div class="note" data-line="422" style="display:block">
+<p class="p noindent" data-line="423"><span data-line="423"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="424"></span>This grammar specification is not LL(1) and could not be implemented as such using Menhir; most of the type checking is made after the abstract syntaxic tree is produced. The only purpose of the present specification is to give a clear view of what is possible and not possible with this language.</p></div>
+<pre class="para-block serif pretty pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="426" data-line-first="427" style="display:block;font-size:100%"><code data-line="427"><table class="block" data-line="427">
+<tbody><tr><td class='colspan1 expander'>INT       = [0-9]+</td></tr>
+<tr><td class='colspan1 expander'>FLOAT     = [0-9]+\.[0-9]+</td></tr>
+<tr><td class='colspan1 expander'>TERM      = [_0-9]*[a-zA-Z][a-zA-Z_0-9]*</td></tr></tbody></table></code></pre>
+<pre class="para-block pre-fenced pre-fenced3 language-grammar lang-grammar grammar colorized" data-line="432" data-line-first="433" style="display:block"><code data-line="433"><span style="color:purple">&lt;touist-file&gt;</span> ::= <span style="color:purple">&lt;affect&gt;</span> <span style="color:purple">&lt;touist-file&gt;</span>
+                 | <span style="color:purple">&lt;formula&gt;</span> <span style="color:purple">&lt;touist-file&gt;</span>
+                 | EOF
+
+<span style="color:purple">&lt;var&gt;</span> ::= &quot;$&quot; TERM
+    | &quot;$&quot; TERM &quot;(&quot; <span style="color:purple">&lt;comma-list(&lt;float&gt;</span> | <span style="color:purple">&lt;int&gt;</span> | <span style="color:purple">&lt;prop&gt;)&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;prop&gt;</span> ::=
+    | <span style="color:purple">&lt;var&gt;</span>
+    | TERM
+    | TERM &quot;(&quot; <span style="color:purple">&lt;comma-list(&lt;float&gt;</span> | <span style="color:purple">&lt;int&gt;</span> | <span style="color:purple">&lt;prop&gt;)&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;affect&gt;</span> ::= <span style="color:purple">&lt;var&gt;</span> &quot;=&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;set&gt;</span>)
+
+<span style="color:purple">&lt;let-affect&lt;T&gt;&gt;</span> ::=
+    | &quot;let&quot; <span style="color:purple">&lt;var&gt;</span> &quot;=&quot; <span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;set&gt;</span> &quot;:&quot; <span style="color:purple">&lt;formula&lt;T&gt;&gt;</span>
+
+<span style="color:purple">&lt;equality(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;!=&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;==&quot; <span style="color:purple">&lt;T&gt;</span>
+
+<span style="color:purple">&lt;order(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&gt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;=&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&gt;=&quot; <span style="color:purple">&lt;T&gt;</span>
+
+<span style="color:purple">&lt;bool&gt;</span> ::= &quot;(&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | &quot;true&quot;
+    | &quot;false&quot;
+    | (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;bool&gt;</span>) &quot;in&quot; <span style="color:purple">&lt;set&gt;</span>
+    | &quot;subset(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;empty(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;equality(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;)&gt;</span>
+    | <span style="color:purple">&lt;order(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;)&gt;</span>
+    | <span style="color:purple">&lt;connectors(&lt;bool&gt;)&gt;</span>
+
+<span style="color:purple">&lt;num-operation(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;+&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;-&quot; <span style="color:purple">&lt;T&gt;</span>
+    |     &quot;-&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;*&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;/&quot; <span style="color:purple">&lt;T&gt;</span>
+
+<span style="color:purple">&lt;num-operation-others(&lt;T&gt;)&gt;</span> ::=
+    | <span style="color:purple">&lt;T&gt;</span> &quot;mod&quot; <span style="color:purple">&lt;T&gt;</span>
+    | &quot;abs(&quot; <span style="color:purple">&lt;T&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;int&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | INT
+    | num-operation(<span style="color:purple">&lt;int&gt;</span>)
+    | num-operation-others(<span style="color:purple">&lt;int&gt;</span>)
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;int&gt;</span> &quot;else&quot; <span style="color:purple">&lt;int&gt;</span> &quot;end&quot;
+    | &quot;int(&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>) &quot;)&quot;
+    | &quot;card(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;float&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;float&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | FLOAT
+    | num-operation(<span style="color:purple">&lt;float&gt;</span>)
+    | num-operation-others(<span style="color:purple">&lt;float&gt;</span>)
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;float&gt;</span> &quot;else&quot; <span style="color:purple">&lt;float&gt;</span> &quot;end&quot;
+    | &quot;float(&quot; (<span style="color:purple">&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>)  &quot;)&quot;
+    | &quot;sqrt(&quot; <span style="color:purple">&lt;float&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;set&gt;</span> ::= &quot;(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | <span style="color:purple">&lt;var&gt;</span>
+    | &quot;[&quot; <span style="color:purple">&lt;comma-list(&lt;int&gt;</span>|<span style="color:purple">&lt;float&gt;</span>|<span style="color:purple">&lt;prop&gt;</span>|<span style="color:purple">&lt;bool&gt;)&gt;</span> &quot;]&quot;
+    | &quot;[ <span style="color:purple">&lt;int&gt;</span> &quot;..&quot; <span style="color:purple">&lt;int&gt;</span> &quot;]&quot;
+    | &quot;union(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;inter(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;diff(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;powerset(&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;comma-list(&lt;T&gt;)&gt;</span> ::= <span style="color:purple">&lt;T&gt;</span> | <span style="color:purple">&lt;T&gt;</span> &quot;,&quot; <span style="color:purple">&lt;comma-list(&lt;T&gt;)&gt;</span>
+
+<span style="color:purple">&lt;generalized-connectors(&lt;T&gt;)&gt;</span> ::=
+    | &quot;bigand&quot; <span style="color:purple">&lt;comma-list(&lt;var&gt;)&gt;</span> &quot;in&quot; <span style="color:purple">&lt;comma-list(&lt;set&gt;)&gt;</span>
+                             [&quot;when&quot; <span style="color:purple">&lt;bool&gt;</span>] &quot;:&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | &quot;bigor&quot; <span style="color:purple">&lt;comma-list(&lt;var&gt;)&gt;</span> &quot;in&quot; <span style="color:purple">&lt;comma-list(&lt;set&gt;)&gt;</span>
+                             [&quot;when&quot; <span style="color:purple">&lt;bool&gt;</span>] &quot;:&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | &quot;exact(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;atmost(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+    | &quot;atleast(&quot; <span style="color:purple">&lt;int&gt;</span> &quot;,&quot; <span style="color:purple">&lt;set&gt;</span> &quot;)&quot;
+
+<span style="color:purple">&lt;connectors(&lt;T&gt;)&gt;</span> ::=
+    |     &quot;not&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;and&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;or&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;xor&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;=&gt;&quot; <span style="color:purple">&lt;T&gt;</span>
+    | <span style="color:purple">&lt;T&gt;</span> &quot;&lt;=&gt;&quot; <span style="color:purple">&lt;T&gt;</span>
+
+<span style="color:purple">&lt;formula(&lt;T&gt;)&gt;</span> ::=
+    | &quot;(&quot; <span style="color:purple">&lt;T&gt;</span> &quot;)&quot;
+    | &quot;if&quot; <span style="color:purple">&lt;bool&gt;</span> &quot;then&quot; <span style="color:purple">&lt;T&gt;</span> &quot;else&quot; <span style="color:purple">&lt;T&gt;</span> &quot;end&quot;
+    | <span style="color:purple">&lt;connectors(&lt;T&gt;)&gt;</span>
+    | <span style="color:purple">&lt;generalized-connectors(&lt;T&gt;)&gt;</span>
+    | <span style="color:purple">&lt;let-affect(&lt;T&gt;)&gt;</span>
+
+<span style="color:purple">&lt;formula-simple&gt;</span> ::=
+    | &quot;Top&quot;
+    | &quot;Bot&quot;
+    | <span style="color:purple">&lt;prop&gt;</span>
+    | <span style="color:purple">&lt;var&gt;</span>
+    | <span style="color:purple">&lt;formula(&lt;formula-simple&gt;)&gt;</span>
+
+<span style="color:purple">&lt;formula-smt&gt;</span> ::=
+    | <span style="color:purple">&lt;formula(&lt;formula-smt&gt;)&gt;</span>
+    | <span style="color:purple">&lt;expr-smt&gt;</span>
+
+<span style="color:purple">&lt;expr-smt&gt;</span> ::=
+    | &quot;Top&quot;
+    | &quot;Bot&quot;
+    | <span style="color:purple">&lt;prop&gt;</span>
+    | <span style="color:purple">&lt;var&gt;</span>
+    | <span style="color:purple">&lt;int&gt;</span>
+    | <span style="color:purple">&lt;float&gt;</span>
+    | <span style="color:purple">&lt;order&gt;(&lt;expr-smt&gt;</span>)
+    | &lt;num-operations_standard(<span style="color:purple">&lt;expr-smt&gt;)&gt;</span>
+    | <span style="color:purple">&lt;equality(&lt;expr-smt&gt;)&gt;</span>
+    | &lt;in_parenthesis(<span style="color:purple">&lt;expr-smt&gt;)&gt;</span></code></pre>
+<div class="bibl" data-line="561;out/reference-manual-bib.bbl.mdk:1" style="bbl-file:out/reference-manual-bib.bbl.mdk"><h2 id="sec-references" class="clearnum h1 heading-references" data-line="561;out/reference-manual-bib.bbl.mdk:2" data-heading-depth="1" style="display:block"><span data-line="561;out/reference-manual-bib.bbl.mdk:2"></span>References</h2>
+<div class="bibliography bib-numeric" data-hanging-indent="0" data-cite-style="numeric:&#39;[&#39;,&#39;]&#39;,&#39;, &#39;" data-style="madoko-numeric" data-line="561;out/reference-manual-bib.bbl.mdk:3" style="bibstyle:madoko-numeric">
+<div id="ben_slimane_iaf_2015" class="bibitem" data-cite-year="2015a" data-cite-authors="Ben Slimane et al." data-cite-authors-long="Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais" data-cite-label="1" data-line="bibliography.bib:1" style="text-indent:-2rem;margin-left:2rem;searchterm:La%20logique%20facile%20avec%20TouIST%20formalisez%20et%20r%C3%A9solvez%20facilement%20des%20probl%C3%A8mes%20du%20monde%20r%C3%A9el%20Ben%20Slimane%2C%20Comte%2C%20Gasquet%2C%20Heba%2C%20Lezaud%2C%20Maris%2C%20and%20Valais%2C%202015a;bibitem-label:\5C [1\5C ]"><span class="bibitem-before" style="padding-right:0.5em;display: inline-block; width:calc(2rem - 0.5em);display: inline-block; text-align:right;font-size:90%">[1]</span>Khaled Skander Ben Slimane, Alexis Comte, Olivier Gasquet, Abdelwahab Heba, Olivier Lezaud, Frédéric Maris, and Maël Valais. &#8220;La Logique Facile Avec TouIST (formalisez et Résolvez Facilement Des Problèmes Du Monde Réel).&#8221; In <em class="em-low1">Actes Des 9es Journ&#233;es d’Intelligence Artificielle Fondamentale (IAF&#160;2015)</em>. 2015. <a href="http://pfia2015.inria.fr/actes/download.php?conf=IAF&amp;file=Ben_Slimane_IAF_2015.pdf" class="bib-url texturl monospace">http://&#8203;pfia2015.&#8203;inria.&#8203;fr/&#8203;actes/&#8203;download.&#8203;php?&#8203;conf=&#8203;IAF&amp;&#8203;file=&#8203;Ben_&#8203;Slimane_&#8203;IAF_&#8203;2015.&#8203;pdf</a>.&nbsp;<a href="http://www.bing.com/search?q=La%20logique%20facile%20avec%20TouIST%20formalisez%20et%20r%C3%A9solvez%20facilement%20des%20probl%C3%A8mes%20du%20monde%20r%C3%A9el%20Ben%20Slimane%2C%20Comte%2C%20Gasquet%2C%20Heba%2C%20Lezaud%2C%20Maris%2C%20and%20Valais%2C%202015a" class="bibsearch">&#128270;</a></div>
+<div id="slimanecghlmv15" class="bibitem" data-cite-year="2015b" data-cite-authors="Ben Slimane et al." data-cite-authors-long="Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais" data-cite-label="2" data-line="bibliography.bib:9" style="text-indent:-2rem;margin-left:2rem;searchterm:Twist%20your%20logic%20with%20TouIST%20Ben%20Slimane%2C%20Comte%2C%20Gasquet%2C%20Heba%2C%20Lezaud%2C%20Maris%2C%20and%20Valais%2C%202015b;bibitem-label:\5C [2\5C ]"><span class="bibitem-before" style="padding-right:0.5em;display: inline-block; width:calc(2rem - 0.5em);display: inline-block; text-align:right;font-size:90%">[2]</span>Khaled Skander Ben Slimane, Alexis Comte, Olivier Gasquet, Abdelwahab Heba, Olivier Lezaud, Frederic Maris, and Mael Valais. &#8220;Twist Your Logic with TouIST.&#8221; <em class="em-low1">CoRR</em> abs/1507.03663. 2015. <a href="http://arxiv.org/abs/1507.03663" class="bib-url texturl monospace">http://&#8203;arxiv.&#8203;org/&#8203;abs/&#8203;1507.&#8203;03663</a>.&nbsp;<a href="http://www.bing.com/search?q=Twist%20your%20logic%20with%20TouIST%20Ben%20Slimane%2C%20Comte%2C%20Gasquet%2C%20Heba%2C%20Lezaud%2C%20Maris%2C%20and%20Valais%2C%202015b" class="bibsearch">&#128270;</a></div></div></div><span data-line=""></span>
+<div class="footnotes madoko">
+<hr >
+
+<div id="fn-stdin" class="footnote" data-line="46" style="line-adjust:0">
+<p class="p noindent" data-line="46"><span data-line="46"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="46"></span>You can also use <span data-line="46"></span><code class="code code1">touistc</code><span data-line="46"></span> with <span data-line="46"></span><code class="code code1">stdin</code><span data-line="46"></span>: <span data-line="46"></span><code class="code code1">echo &#39;p and q&#39; | ./touistc - -sat --solve</code><span data-line="46"></span>
+<span data-line="47"></span><span data-line="47"></span><a href="#back-fn-stdin" class="footnote-backref localref">&#8617;</a></p></div></div></div>
+</body>
+
+</html>
