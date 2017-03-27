@@ -4,7 +4,7 @@ var version;
 $.get("https://api.github.com/repos/"+creator+"/"+project+"/releases/latest", function (data) {
   zip_all = data.zipball_url;
   version = getVersion(data.zipball_url);
-  document.getElementById('version').innerHTML = version.replace('v','');
+  document.getElementById('version').innerHTML = version;
   LienTelechargement(version, zip_all);
 });
 

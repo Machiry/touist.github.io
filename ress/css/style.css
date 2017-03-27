@@ -4,22 +4,15 @@
 *   URL:http://codepen.io/getagain/pen/Ftien;
 */
 .btn {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    height: 53px;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    line-height: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0px 1px 1px #888;
-    padding-bottom: 70px;
+    
 }
+
+.btn.left,
+.btn.right {
+    height: 53px;
+    padding-bottom: 60px;
+}
+
 .btn span.icon,
 .btn span.title {
     display: block;
@@ -53,7 +46,7 @@
 .btn span.title {
     -webkit-box-shadow: 0 3px 0 0 #00ae94;
     box-shadow: 0 3px 0 0 #00ae94;
-    background-color: #00cdae;
+    background-color: #00b398;
 }
 .btn span.arrow-left,
 .btn span.arrow-right {
@@ -69,9 +62,9 @@
 }
 .btn.left span.arrow-left {
     right: 0;
-    -webkit-box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
-    box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
-    border-right: 10px solid #00cdae;
+    -webkit-box-shadow: 10px 0 0 0 #00b398, 10px 3px 0 0 #00ae94;
+    box-shadow: 10px 0 0 0 #00b398, 10px 3px 0 0 #00ae94;
+    border-right: 10px solid #00b398;
 }
 .btn.right span.arrow-left {
     right: 0;
@@ -87,9 +80,9 @@
 }
 .btn.right span.arrow-right {
     left: 0;
-    -webkit-box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
-    box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
-    border-left: 10px solid #00cdae;
+    -webkit-box-shadow: -10px 0 0 0 #00b398, -10px 3px 0 0 #00ae94;
+    box-shadow: -10px 0 0 0 #00b398, -10px 3px 0 0 #00ae94;
+    border-left: 10px solid #00b398;
 }
 .btn span.slant-left,
 .btn span.slant-right {
@@ -111,25 +104,21 @@
 }
 .btn.right span.slant-right {
     left: 0;
-    -webkit-box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
-    box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
-    border-left: 10px solid #00cdae;
+    -webkit-box-shadow: -10px 0 0 0 #00b398, -10px 3px 0 0 #00ae94;
+    box-shadow: -10px 0 0 0 #00b398, -10px 3px 0 0 #00ae94;
+    border-left: 10px solid #00b398;
 }
 .btn.left span.slant-left {
     right: 0;
-    -webkit-box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
-    box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
-    border-right: 10px solid #00cdae;
+    -webkit-box-shadow: 10px 0 0 0 #00b398, 10px 3px 0 0 #00ae94;
+    box-shadow: 10px 0 0 0 #00b398, 10px 3px 0 0 #00ae94;
+    border-right: 10px solid #00b398;
 }
 .btn.right span.slant-left {
     right: 0;
     -webkit-box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
     box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
     border-right: 10px solid #00967f;
-}
-.btn:active,
-.btn.active {
-    height: 51px;
 }
 .btn:hover {}.btn:hover span.arrow-left {
     right: 10px;
@@ -161,7 +150,6 @@ a.btn-small span.btn {
     max-width: 50rem;
 }
 .custom-btn a{
-    width: 660px
     text-decoration: none;
     color: #eee;
     font-weight: bold;
@@ -174,19 +162,28 @@ a.btn-small span.btn {
 .navbar-dark .navbar-brand, .navbar-dark .navbar-toggler{
     padding-left: 50px;
     color: #ffffff;
-    text-transform: uppercase;
 }
 
 .header{background-color: #333333;}
 
-.section0{background-color: #FE7320;}
+.section0{
+    color: #ffffff;
+    background-color: #048cca;
+    padding-bottom: 1rem;
+}
 .section1{
     background-color: #ffffff ;
-    padding-top: 60px;
+    padding-top: 2rem;
 }
 .section2{
-    background-color: #FE7320;
-    padding-top: 60px;
+    color: #ffffff;
+    background-color: #048cca;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.section2 a {
+    color: #fff;
+    font-weight: bold;
 }
 
 
@@ -211,11 +208,6 @@ a.btn-small span.btn {
     text-align: left;
 }
 
-.section2 .btn{
-    padding-bottom: 0;
-    border-radius: 15%;
-    min-width: 100px;
-}
 footer {
      padding-top: 0rem; 
      padding-bottom: 0rem; 

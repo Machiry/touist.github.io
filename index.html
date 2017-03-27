@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Site pour le projet github touist">
+    <meta name="description" content="Webpage for the Touist language">
     <meta name="author" content="touist">
     <link rel="icon" href="./ress/img/logo.png">
 
-    <title>TouIST</title>
+    <title>Touist language</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
@@ -24,7 +24,7 @@
 
    <!--header-->
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse header">
-      <a class="navbar-brand" href="index.html">TouIST</a>
+      <a class="navbar-brand" href="index.html">TouIST project</a>
       <div class="right">
       <ul class="nav navbar-nav">
         <li class="nav-item">
@@ -45,45 +45,41 @@
       <div class="container">
       <img src="./ress/img/logo.png" alt="logo_touist" width="175px">
         <h1 class="jumbotron-heading center">TouIST</h1>
-        <p class="lead text-muted description">Description: the language and application for doing logic</p>
-        <div class="custom-btn">
-         <a href="#" id="main_download" target="_blank" class="btn left">
-            <span class="left icon"><i class="fa fa-download" aria-hidden="true"></i></span>
-            <span class="right title"><span class="arrow-right"></span><span id="logo_dl"></span>  Télécharger</span>
-          </a>
-          <span> OU </span>
-           <a href="#" class="btn right" style="float: inherit;" id="github_link">
-            <span class="left title"><span class="arrow-left"></span>Github</span>
-            <span class="right icon"><i class="fa fa-github" aria-hidden="true"></i></span>
-          </a>
-        </div>
-        <h2>Version: <span id="version"> </span></h2>
-        <div class="changelog">
-          <button type="button" class="btn btn-success" id="changelog_button">Voir le changelog</button>
-          <div class="secret" id="changelog">
-          </div>
-        </div>
+        <p class="lead text-muted description">A friendly language for propositional logic and more</p>
       </div>
     </section>
 
-
-     <section class="jumbotron text-xs-center section1" id="presentation">
-      <div class="container" >
-        <h2>Présentation:</h2>
-
-        <div class="slider carrousel center">
-          <div><img src="./ress/img/carrousel/screen1.png" class="img-responsive img_carrousel" alt="screen1" ></div>
-          <div><img src="./ress/img/carrousel/screen2.png" class="img-responsive img_carrousel" alt="screen2"></div>
-       </div>
-
-        <p>TouIST is a user-friendly tool for solving propositionnal logic problems using a high-level logic language (known as the bigand format or syntax or language). This language allows complex expressions like big and, sets...</p>
-
-        <p>We can for example solve the problem "Wolf, Sheep, Cabbage", or a sudoku, or any problem that can be expressed in propositionnal logic.</p>
-
-        <p>The TouIST has been initialized by Frederic Maris and Olivier Gasquet, associate professors at the Institut de Recherche en Informatique de Toulouse (IRIT). It is a "second" or "new" version of a previous program, SAToulouse.</p>
-
-        <p>The development is done by a team of five students in first year of master's degree at the Université Toulouse III — Paul Sabatier. This project is a part of their work at school.</p>
+    <section class="jumbotron text-xs-center section1" id="presentation">
+    <div class="container">
+      <div class="custom-btn">
+        <a href="#" id="main_download" target="_blank" class="btn left">
+          <span class="left icon"><i class="fa fa-download" aria-hidden="true"></i></span>
+          <span class="right title"><span id="logo_dl"></span><span class="arrow-right"></span> Download (<span class="badge" id="version"></span>)</span>
+        </a>
+        <a href="#" class="btn right" style="float: inherit;" id="github_link">
+          <span class="left title"><span class="arrow-left"></span>Sources on Github</span>
+          <span class="right icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+        </a>
       </div>
+      
+      <a href="reference-manual.html" role="button" class="btn btn-default"><span class="fa fa-book"></span> Reference manual</a> 
+      <a href="reference-manual.pdf" class="btn btn-default" role="button"><span class="fa fa-file-pdf-o"></span> Reference manual (pdf)</a>
+      <a href="https://github.com/touist/touist/blob/master/CHANGELOG" class="btn btn-default" role="button"><span class="fa fa-clock-o"></span> Changelog</a>
+
+      <p>TouIST is a user-friendly tool for solving propositionnal logic problems using a high-level logic language (known as the bigand format or syntax or language). This language allows complex expressions like big and, sets...</p>
+
+      <p>We can for example solve the problem "Wolf, Sheep, Cabbage", or a sudoku, or any problem that can be expressed in propositionnal logic.</p>
+
+      <p>The TouIST has been initialized by Frederic Maris and Olivier Gasquet, associate professors at the Institut de Recherche en Informatique de Toulouse (IRIT). It is a "second" or "new" version of a previous program, SAToulouse.</p>
+
+      <p>The development is done by a team of five students in first year of master's degree at the Université Toulouse III — Paul Sabatier. This project is a part of their work at school.</p>
+
+      <div class="slider carrousel center">
+        <div><img src="./ress/img/carrousel/screen1.png" class="img-responsive img_carrousel" alt="screen1" ></div>
+        <div><img src="./ress/img/carrousel/screen2.png" class="img-responsive img_carrousel" alt="screen2"></div>
+      </div>
+
+    </div>
     </section>
 
 
@@ -94,50 +90,28 @@
         <div class="col-md-4">
           <i class="fa fa-info fa-4x" aria-hidden="true"></i>
           <h2>Licence</h2>
-          <p>MIT - DESCRIPTION </p>
         </div>
         <div class="col-md-4">
           <i class="fa fa-code fa-4x" aria-hidden="true"></i>
-          <h2>Contribuer</h2>
-          <p>DESCRIPTION</p>
+          <h2>Contribute</h2>
         </div>
         <div class="col-md-4">
           <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-          <h2>Participants</h2>
-          <p>MESSAGE</p>
+          <h2>Contributors</h2>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-4">
-          <p><a class="btn btn-success" href="#" role="button" id="button_licence">Voir</a></p>
+          This software is licensed under the <a href="https://github.com/touist/touist/blob/master/LICENSE">MIT License</a>
         </div>
         <div class="col-md-4">
-          <p><a class="btn btn-success" href="#" role="button" id="button_contribuer">Voir</a></p>
+          This project is open-source. You are welcome to contribute to the project on Github.
+          For more information, you can read the 
+          <a href="https://github.com/touist/touist/blob/master/CONTRIBUTING.md">contribution guide</a>.
        </div>
         <div class="col-md-4">
-          <p><a class="btn btn-success" href="#" role="button" id="button_acteurs">Voir</a></p>
-        </div>
-      </div>
-
-      <div id="licence_div">
-        <h2>Licence:</h2>
-        <div class="secret" id="licence">
-        </div>
-      </div>
-
-
-      <div id="contribuer_div">
-        <h2>Contribuer:</h2>
-        <div class="secret" id="contribuer">
-        </div>
-      </div>
-
-
-
-      <div id="acteurs_div">
-        <h2>Acteurs du projet:</h2>
-        <div class="secret" id="acteurs">
+          <a href="https://github.com/touist/touist/blob/master/CONTRIBUTING.md">List of contributors</a>.
         </div>
       </div>
 
