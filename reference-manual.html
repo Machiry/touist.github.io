@@ -310,7 +310,7 @@
 <div class="titleblock align-center para-block" data-line="12" style="text-align:center;line-adjust:0">
 <div class="titleheader align-center" data-line="12" style="text-align:center;line-adjust:0">
 <div class="title para-block" data-line="12" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0"><span data-line="12"></span>Touist reference manual</div>
-<div class="titlenote para-block" data-line="15" style="line-adjust:0"><span data-line="15"></span>2017-03-28 (touist v2.3.0-36-ga4cb7b6)</div></div>
+<div class="titlenote para-block" data-line="15" style="line-adjust:0"><span data-line="15"></span>2017-03-28 (touist v2.4.0)</div></div>
 <div class="authors align-center" data-line="20" style="text-align:center;width:80%;line-adjust:0"><table class="authorrow columns block" data-line="20" style="margin-top:2ex;width:100%;line-adjust:0">
 <tbody><tr><td class="author column" data-line="20" style="text-align:center;line-adjust:0">
 <div class="authorname" data-line="20" style="font-size:large;line-adjust:0"><span data-line="20"></span>Olivier Gasquet</div></td><td class="author column" data-line="25" style="text-align:center;line-adjust:0">
@@ -356,7 +356,7 @@
 Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais, 2015a" class="bibref localref" style="target-element:bibitem"><span class="cite-number">1</span></a>, <a href="#slimanecghlmv15" title="Twist your logic with TouIST
 Ben Slimane, Comte, Gasquet, Heba, Lezaud, Maris, and Valais, 2015b" class="bibref localref" style="target-element:bibitem"><span class="cite-number">2</span></a>]</span><span data-line="19"></span>. You are provided with two programs: a
 graphical interface, refered as <span data-line="20"></span><code class="code code1">touist.jar</code><span data-line="20"></span> (as it is written in Java) and
-<span data-line="21"></span><code class="code code1">touistc</code><span data-line="21"></span>, the command-line compiler and solver (written in Ocaml).
+<span data-line="21"></span><code class="code code1">touist</code><span data-line="21"></span>, the command-line compiler and solver (written in Ocaml).
 </p>
 <p class="p indent" data-line="23"><span data-line="23"></span>The touist language aims at making the writing of propositional logic as
 approchable as possible. Propositions and connectors syntaxes are close to what
@@ -381,14 +381,14 @@ formula is <span data-line="44"></span><em class="em-low1">satisfiable</em><span
 </p>
 <div class="center align-center" data-line="47" style="text-align:center"><table class="madoko block" data-line="48">
 <thead><tr><th class="thead tr-even col cell-line col-odd col-first" data-line="48" data-row="0" data-col="1"></th><th class="thead tr-even col cell-line col-even col-last" data-line="48" data-row="0" data-col="2"></th></tr>
-<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="49" data-row="1" data-col="1" style="font-weight:bold"><span data-line="49"></span> Graphical Java interface            </th><th class="col thead tr-odd tr-last tr-first col-even col-last" data-line="49" data-row="1" data-col="2" style="font-weight:bold"><span data-line="49"></span> Command-line interface<span data-line="49"></span><sup id="back-fn-stdin" ><a href="#fn-stdin" title="1.You can also use touistc with stdin: `echo &#8216;p and q&#8217; | ./touistc
+<tr><th class="col thead tr-odd tr-last tr-first col-odd col-first" data-line="49" data-row="1" data-col="1" style="font-weight:bold"><span data-line="49"></span> Graphical Java interface            </th><th class="col thead tr-odd tr-last tr-first col-even col-last" data-line="49" data-row="1" data-col="2" style="font-weight:bold"><span data-line="49"></span> Command-line interface<span data-line="49"></span><sup id="back-fn-stdin" ><a href="#fn-stdin" title="1.You can also use touist with stdin: `echo &#8216;p and q&#8217; | ./touist
 &#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="49"></span>            </th></tr></thead>
 <tbody><tr><td class="tbody tr-even col cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-line col-even col-last" data-row="0" data-col="2"></td></tr>
 <tr><td class="tbody tr-odd tr-first col col-odd col-first" data-line="51" data-row="1" data-col="1"><span data-line="51"></span> 1. Type <span data-line="51"></span><code class="code code2 language-touist lang-touist touist colorized">p and q</code><span data-line="51"></span>                 </td><td class="tbody tr-odd tr-first col col-even col-last" data-line="51" data-row="1" data-col="2"><span data-line="51"></span> 1. Create a file <span data-line="51"></span><code class="code code2 language-touist lang-touist touist colorized">p and q</code><span data-line="51"></span>              </td></tr>
-<tr><td class="tbody tr-even col col-odd col-first" data-line="52" data-row="2" data-col="1"><span data-line="52"></span> 2. Press <span data-line="52"></span>&#8220;Solve&#8221;<span data-line="52"></span>                    </td><td class="tbody tr-even col col-even col-last" data-line="52" data-row="2" data-col="2"><span data-line="52"></span> 2. Type <span data-line="52"></span><code class="code code1">./touistc -sat --solve yourfile</code><span data-line="52"></span> </td></tr>
+<tr><td class="tbody tr-even col col-odd col-first" data-line="52" data-row="2" data-col="1"><span data-line="52"></span> 2. Press <span data-line="52"></span>&#8220;Solve&#8221;<span data-line="52"></span>                    </td><td class="tbody tr-even col col-even col-last" data-line="52" data-row="2" data-col="2"><span data-line="52"></span> 2. Type <span data-line="52"></span><code class="code code1">./touist ---sat --solve yourfile</code><span data-line="52"></span> </td></tr>
 <tr><td class="tbody tr-odd tr-last col col-odd col-first" data-line="53" data-row="3" data-col="1"><span data-line="53"></span> 3. Press <span data-line="53"></span>&#8220;Next&#8221;<span data-line="53"></span> to see other models </td><td class="tbody tr-odd tr-last col col-even col-last" data-line="53" data-row="3" data-col="2"><span data-line="53"></span> 3. The first model is displayed           </td></tr></tbody></table></div>
 <ul class="ul list-dash compact" data-line="57">
-<li class="li ul-li list-dash-li compact-li" data-line="57"><span data-line="57"></span>-sat<span data-line="57"></span> <span data-line="57"></span>&#8211;<span data-line="57"></span>solve<span data-line="57"></span>`<span data-line="57"></span>
+<li class="li ul-li list-dash-li compact-li" data-line="57"><span data-line="57"></span>&#8211;<span data-line="57"></span>sat<span data-line="57"></span> <span data-line="57"></span>&#8211;<span data-line="57"></span>solve<span data-line="57"></span>`<span data-line="57"></span>
 </li></ul>
 <h3 id="sec-simple-inference-checking" class="h2" data-line="59" data-heading-depth="2" style="display:block"><span data-line="59"></span><span class="heading-before"><span class="heading-label">1.1</span>.&#8194;</span><span data-line="59"></span>Simple inference checking</h3>
 <p class="p noindent" data-line="61"><span data-line="61"></span>Checking the truth of a given reasoning (or <span data-line="61"></span><em class="em-low1">inference</em><span data-line="61"></span>) may be handy. From a
@@ -930,7 +930,7 @@ clear view of what is possible and not possible with this language.</p></div>
 <hr >
 
 <div id="fn-stdin" class="footnote" data-line="56" style="line-adjust:0">
-<p class="p noindent" data-line="56"><span data-line="56"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="56"></span>You can also use <span data-line="56"></span><code class="code code1">touistc</code><span data-line="56"></span> with <span data-line="56"></span><code class="code code1">stdin</code><span data-line="56"></span>: <span data-line="56"></span>`<span data-line="56"></span>echo <span data-line="56"></span>&#8216;p and q&#8217;<span data-line="56"></span> | ./touistc
+<p class="p noindent" data-line="56"><span data-line="56"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="56"></span>You can also use <span data-line="56"></span><code class="code code1">touist</code><span data-line="56"></span> with <span data-line="56"></span><code class="code code1">stdin</code><span data-line="56"></span>: <span data-line="56"></span>`<span data-line="56"></span>echo <span data-line="56"></span>&#8216;p and q&#8217;<span data-line="56"></span> | ./touist
 <span data-line="57"></span><span data-line="57"></span><a href="#back-fn-stdin" class="footnote-backref localref">&#8617;</a></p></div></div></div>
 </body>
 
