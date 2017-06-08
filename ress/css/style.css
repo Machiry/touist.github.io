@@ -225,3 +225,14 @@ footer a{
     text-decoration:none;
 }
 
+.input-group-addon {
+    background-color: #038f84!important;
+    color: white;
+    text-align:center;
+}
+
+.code {
+    font-family: "Courier New", Courier, monospace, sans-serif;
+	text-align: left;
+	color: #555;
+}
