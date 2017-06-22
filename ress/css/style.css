@@ -145,6 +145,10 @@ a.btn-small span.btn {
 */
 .right{float: right;}
 
+.jumbotron {
+    padding-top: 2rem;
+}
+
 .jumbotron .container {
     max-width: 50rem;
 }
