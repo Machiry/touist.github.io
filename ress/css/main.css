@@ -50,6 +50,7 @@ body {
 
 .jumbotron .container {
   max-width: 40rem;
+  text-align: center;
 }
 
 .album {
