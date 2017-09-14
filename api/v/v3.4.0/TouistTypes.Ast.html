@@ -23,7 +23,7 @@
 <link title="TouistTypes" rel="Chapter" href="TouistTypes.html">
 <link title="TouistVersion" rel="Chapter" href="TouistVersion.html">
 <link title="TouistSmtSolve" rel="Chapter" href="TouistSmtSolve.html">
-<link title="TouistQbfSolve" rel="Chapter" href="TouistQbfSolve.html"><title>API reference for the TouIST library v3.4.0-beta12-26-g964d819 : TouistTypes.Ast</title>
+<link title="TouistQbfSolve" rel="Chapter" href="TouistQbfSolve.html"><title>API reference for the TouIST library v3.4.0 : TouistTypes.Ast</title>
 </head>
 <body>
 <div class="navbar">&nbsp;<a class="up" href="TouistTypes.html" title="TouistTypes">Up</a>
@@ -401,7 +401,7 @@
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
 <code class="code">Loc</code> is a clever (or ugly, you pick) way of keeping the locations in
         the text of the Ast.t elements.
-        In parser.mly, each production rule gives its location in the original
+        In touistParser.mly, each production rule gives its location in the original
         text; for example, instead of simply returning
         <code class="code">Inter (x,y)</code> the parser will return
         <code class="code">Loc (Inter (x,y), ($startpos,$endpos))</code>.

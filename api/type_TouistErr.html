@@ -19,7 +19,7 @@
 <link title="TouistTypes" rel="Chapter" href="TouistTypes.html">
 <link title="TouistVersion" rel="Chapter" href="TouistVersion.html">
 <link title="TouistSmtSolve" rel="Chapter" href="TouistSmtSolve.html">
-<link title="TouistQbfSolve" rel="Chapter" href="TouistQbfSolve.html"><title>API reference for the TouIST library v3.4.0-beta12-26-g964d819 : TouistErr</title>
+<link title="TouistQbfSolve" rel="Chapter" href="TouistQbfSolve.html"><title>API reference for the TouIST library v3.4.0 : TouistErr</title>
 </head>
 <body>
 <code class="code"><span class="keyword">sig</span><br>
@@ -28,7 +28,7 @@
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;loc&nbsp;=&nbsp;<span class="constructor">Lexing</span>.position&nbsp;*&nbsp;<span class="constructor">Lexing</span>.position<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;msg&nbsp;=<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">TouistErr</span>.msg_type&nbsp;*&nbsp;<span class="constructor">TouistErr</span>.during&nbsp;*&nbsp;string&nbsp;*&nbsp;<span class="constructor">TouistErr</span>.loc&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Fatal</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">TouistErr</span>.msg<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">TouistFatal</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">TouistErr</span>.msg<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_loc&nbsp;:&nbsp;?fmt:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">TouistErr</span>.loc&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_msg&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;?width:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?color:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?fmt:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">TouistErr</span>.msg&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>

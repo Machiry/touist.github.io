@@ -27,7 +27,7 @@
 <link title="TouistQbfSolve" rel="Chapter" href="TouistQbfSolve.html"><link title="Print the errors" rel="Section" href="#2_Printtheerrors">
 <link title="Give errors" rel="Section" href="#2_Giveerrors">
 <link title="Change the error formatting" rel="Section" href="#2_Changetheerrorformatting">
-<title>API reference for the TouIST library v3.4.0-beta12-26-g964d819 : TouistErr</title>
+<title>API reference for the TouIST library v3.4.0 : TouistErr</title>
 </head>
 <body>
 <div class="navbar"><a class="pre" href="TouistLatex.html" title="TouistLatex">Previous</a>
@@ -42,7 +42,7 @@ This is where the compiler errors are managed.
 
     We call a 'message' an error or a warning.
     Two cases for displaying the errors:<ul>
-<li>either one of the parse/eval/smt/sat function will raise the Fatal exception.
+<li>either one of the parse/eval/smt/sat function will raise the TouistFatal exception.
       In this case, after the exception is catched, you can run <code class="code">print_msgs</code>.</li>
 <li>or no fatal error has been encoundered; if you want to display the errors,
       you can run <code class="code">print_msgs</code>.</li>
@@ -138,7 +138,7 @@ This is where the compiler errors are managed.
 <pre><span id="TYPEmsg"><span class="keyword">type</span> <code class="type"></code>msg</span> = <code class="type"><a href="TouistErr.html#TYPEmsg_type">msg_type</a> * <a href="TouistErr.html#TYPEduring">during</a> * string * <a href="TouistErr.html#TYPEloc">loc</a> option</code> </pre>
 
 
-<pre><span id="EXCEPTIONFatal"><span class="keyword">exception</span> Fatal</span> <span class="keyword">of</span> <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a></code></pre>
+<pre><span id="EXCEPTIONTouistFatal"><span class="keyword">exception</span> TouistFatal</span> <span class="keyword">of</span> <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a></code></pre>
 <br>
 <h2 id="2_Printtheerrors">Print the errors</h2><br>
 
