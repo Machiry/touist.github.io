@@ -19,16 +19,15 @@ document.getElementById('github_link').href = "https://github.com/" + creator + 
 
 //lien de telchargement
 function LienTelechargement(version, zip_all) {
-  var base = "https://github.com/" + creator + "/" + project + "/releases/download/" + version + "/" + project + "-" + version + "-";
-  var architecture = "x64";
+  var architecture = "x86_64";
   var type = ".zip";
   var os = "invalide"
   var logo = "invalide";
-  var fin = "-" + architecture + type;
 
   if (navigator.appVersion.indexOf("Win") != -1) {
     os = "windows";
     logo = "windows";
+    architecture = "x86";
   }
   if (navigator.appVersion.indexOf("Mac") != -1) {
     os = "mac";
@@ -40,7 +39,9 @@ function LienTelechargement(version, zip_all) {
     logo = "linux";
   }
 
-  lien = base + os + fin;
+  lien = "https://github.com/" + creator + "/" + project + "/releases/download/"
+         + version + "/TouIST-jar-" + version + "-" + os + "-" + architecture + type;
+
   if (navigator.appVersion.indexOf("invalide") != -1)
     lien = "https://api.github.com/replaceos/" + creator + "/" + project + "/zipball/" + version;
 
