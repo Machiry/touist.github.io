@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="TouistPprint.html">
 <link rel="next" href="TouistErr.html">
@@ -33,22 +34,21 @@
 </div>
 <h1>Module <a href="type_TouistLatex.html">TouistLatex</a></h1>
 
-<pre><span class="keyword">module</span> TouistLatex: <code class="code">sig</code> <a href="TouistLatex.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Transform any AST (at any stage of transformation) to latex.
-<p>
+<pre><span id="MODULETouistLatex"><span class="keyword">module</span> TouistLatex</span>: <code class="code">sig</code> <a href="TouistLatex.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Transform any AST (at any stage of transformation) to latex.</p>
 
-    Note that the headers are not included; if you want to compile
+<p>Note that the headers are not included; if you want to compile
     the resulting latex text in a real latex document, you would need
-    to add (fr example):
-    <pre class="codepre"><code class="code">      \documentclass[11pt]{report}
+    to add (fr example):</p>
+<pre class="codepre"><code class="code">      \documentclass[11pt]{report}
       \usepackage{mathtools}
       \begin{document}
         % thing produced by latex_of_ast
       \end{document}
     </code></pre>
-<p>
-
-    Some details on the latex code produced:<ul>
+<p>Some details on the latex code produced:</p>
+<ul>
 <li>tuple-propositions <code class="code">p(a,b,c)</code> turn into p_</li>
 <li>variables are displayed in bold font and '$' is removed</li>
 <li>we use <code class="code">\mathbf{}</code> for setting bold font on variables.
@@ -57,25 +57,27 @@ Transform any AST (at any stage of transformation) to latex.
       way of displaying math) but <code class="code">\usepackage{bm}</code> does not work
       with most tools: MathJax (javascript), jlatexmath (java).</li>
 </ul>
-<br>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="VALlatex_of_ast"><span class="keyword">val</span> latex_of_ast</span> : <code class="type">full:bool -> TouistTypes.AstSet.elt -> string</code></pre><div class="info ">
-<code class="code">latex_of_ast</code> turns an AST into latex. Two latex variants are targeted:<ul>
+<div class="info-desc">
+<p><code class="code">latex_of_ast</code> turns an AST into latex. Two latex variants are targeted:</p>
+<ul>
 <li>for light latex processors (mathjax, jlatexmath), you should use
       <code class="code">~full:false</code></li>
 <li>for fully-featured latex processors, you can use <code class="code">~full:true</code>.</li>
 </ul>
-<br>
 </div>
-<br>
-<h2 id="2_Utility">Utility</h2><br>
-
+</div>
+<h3 id="2_Utility">Utility</h3>
 <pre><span id="VALast_fun"><span class="keyword">val</span> ast_fun</span> : <code class="type">(bool -> <a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -> bool) -> bool -> <a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -> bool</code></pre><div class="info ">
-<code class="code">ast_fun</code> will apply f on all *formula*-related elements of the AST where
+<div class="info-desc">
+<p><code class="code">ast_fun</code> will apply f on all *formula*-related elements of the AST where
     cond is true. The tranversal order should not be considered.
-    Whenever a non-formula is given, acc will be immediatly returned.<br>
+    Whenever a non-formula is given, acc will be immediatly returned.</p>
+</div>
 </div>
 
 <pre><span id="VALcontains_newline"><span class="keyword">val</span> contains_newline</span> : <code class="type"><a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -> bool</code></pre>

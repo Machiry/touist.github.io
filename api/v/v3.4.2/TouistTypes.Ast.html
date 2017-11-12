@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="next" href="TouistTypes.AstSet.html">
 <link rel="Up" href="TouistTypes.html">
@@ -30,7 +31,7 @@
 </div>
 <h1>Module <a href="type_TouistTypes.Ast.html">TouistTypes.Ast</a></h1>
 
-<pre><span class="keyword">module</span> Ast: <code class="code">sig</code> <a href="TouistTypes.Ast.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEAst"><span class="keyword">module</span> Ast</span>: <code class="code">sig</code> <a href="TouistTypes.Ast.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEvar"><span class="keyword">type</span> <code class="type"></code>var</span> = <code class="type">string * <a href="TouistTypes.Ast.html#TYPEt">t</a> list option</code> </pre>
 
@@ -385,10 +386,12 @@
 <td align="left" valign="top" >
 <code><span id="TYPEELTt.Prop"><span class="constructor">Prop</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-<code class="code">Prop</code> contains the actual proposition after the evaluation has been
+<div class="info-desc">
+<p><code class="code">Prop</code> contains the actual proposition after the evaluation has been
         run.
-        Example: if $d=foo and $i=123, then the <code class="code">Prop</code> is: <pre class="verbatim">            abcd(1,foo,123,a)     &lt;- an actual string that represents an actual
-                                    logical proposition                     </pre><br>
+        Example: if $d=foo and $i=123, then the <code class="code">Prop</code> is:</p>
+<pre class="verbatim">            abcd(1,foo,123,a)     &lt;- an actual string that represents an actual
+                                    logical proposition                     </pre></div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -398,16 +401,17 @@
 <td align="left" valign="top" >
 <code><span id="TYPEELTt.Loc"><span class="constructor">Loc</span></span> <span class="keyword">of</span> <code class="type"><a href="TouistTypes.Ast.html#TYPEt">t</a> * <a href="TouistErr.html#TYPEloc">TouistErr.loc</a></code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-<code class="code">Loc</code> is a clever (or ugly, you pick) way of keeping the locations in
+<div class="info-desc">
+<p><code class="code">Loc</code> is a clever (or ugly, you pick) way of keeping the locations in
         the text of the Ast.t elements.
         In touistParser.mly, each production rule gives its location in the original
         text; for example, instead of simply returning
         <code class="code">Inter (x,y)</code> the parser will return
-        <code class="code">Loc (Inter (x,y), ($startpos,$endpos))</code>.
-<p>
+        <code class="code">Loc (Inter (x,y), ($startpos,$endpos))</code>.</p>
 
-        <code class="code">Loc</code> is used in eval.ml when checking the types; it allows to give precise
-        locations.<br>
+<p><code class="code">Loc</code> is used in eval.ml when checking the types; it allows to give precise
+        locations.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -417,7 +421,9 @@
 <td align="left" valign="top" >
 <code><span id="TYPEELTt.Paren"><span class="constructor">Paren</span></span> <span class="keyword">of</span> <code class="type"><a href="TouistTypes.Ast.html#TYPEt">t</a></code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-<code class="code">Paren</code> keeps track of the parenthesis in the AST in order to print latex<br>
+<div class="info-desc">
+<p><code class="code">Paren</code> keeps track of the parenthesis in the AST in order to print latex</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
