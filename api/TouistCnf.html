@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="TouistEval.html">
 <link rel="next" href="TouistSmt.html">
@@ -36,18 +37,15 @@
 </div>
 <h1>Module <a href="type_TouistCnf.html">TouistCnf</a></h1>
 
-<pre><span class="keyword">module</span> TouistCnf: <code class="code">sig</code> <a href="TouistCnf.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Process an evaluated AST given by <a href="TouistEval.html#VALeval"><code class="code">TouistEval.eval</code></a>
-    to produce a CNF AST and output DIMACS
-<p>
+<pre><span id="MODULETouistCnf"><span class="keyword">module</span> TouistCnf</span>: <code class="code">sig</code> <a href="TouistCnf.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Process an evaluated AST given by <a href="TouistEval.html#VALeval"><code class="code">TouistEval.eval</code></a>
+    to produce a CNF AST and output DIMACS</p>
 
-    <code class="code">ast_to_cnf</code> is the main function.
-<p>
+<p><code class="code">ast_to_cnf</code> is the main function.</p>
 
-    <h2 id="2_Vocabulary">Vocabulary</h2>
-<p>
-
-    <ul>
+<h3 id="2_Vocabulary">Vocabulary</h3>
+<ul>
 <li><b>Literal</b>:
       a possibly negated proposition; we denote them as a, b... and
       their type is homogenous to <code class="code">Prop _</code> or <code class="code">Not(Prop _)</code> or <code class="code">Top</code> or <code class="code">Bottom</code>.
@@ -88,90 +86,83 @@ Process an evaluated AST given by <a href="TouistEval.html#VALeval"><code class=
 
     </li>
 </ul>
-<br>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h2 id="2_CNFtransformation">CNF transformation</h2><br>
-
+<h3 id="2_CNFtransformation">CNF transformation</h3>
 <pre><span id="VALast_to_cnf"><span class="keyword">val</span> ast_to_cnf</span> : <code class="type">?debug:bool -> <a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -> <a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a></code></pre><div class="info ">
-<code class="code">ast_to_cnf</code> translates the syntaxic tree made of Or, And, Implies, Equiv...
+<div class="info-desc">
+<p><code class="code">ast_to_cnf</code> translates the syntaxic tree made of Or, And, Implies, Equiv...
     Or, And and Not; moreover, it can only be in a conjunction of formulas
     (see a reminder of their definition above).
-    For example (instead of And, Or we use "and" and "or" and "not"):
-    <pre class="verbatim">        (a or not b or c) and (not a or b or d) and (d)
-   </pre>
-    The matching abstract syntax tree (ast) is
-    <pre class="verbatim">        And (Or a,(Cor (Not b),c)), (And (Or (Or (Not a),b),d), d)
-   </pre><br>
+    For example (instead of And, Or we use "and" and "or" and "not"):</p>
+<pre class="verbatim">        (a or not b or c) and (not a or b or d) and (d)
+   </pre><p>The matching abstract syntax tree (ast) is</p>
+<pre class="verbatim">        And (Or a,(Cor (Not b),c)), (And (Or (Or (Not a),b),d), d)
+   </pre></div>
 </div>
-<br>
-<h2 id="2_Clausestransformation">Clauses transformation</h2><br>
-
+<h3 id="2_Clausestransformation">Clauses transformation</h3>
 <pre><span id="VALclauses_of_cnf"><span class="keyword">val</span> clauses_of_cnf</span> : <code class="type">('a -> 'a) -><br>       (unit -> 'a) -><br>       <a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -><br>       'a list list * ('a, string) Hashtbl.t * (string, 'a) Hashtbl.t</code></pre><div class="info ">
-<code class="code">clauses_of_cnf</code> translates the cnf ast (Not, And, Or, Prop; no Bot/Top)
+<div class="info-desc">
+<p><code class="code">clauses_of_cnf</code> translates the cnf ast (Not, And, Or, Prop; no Bot/Top)
     into a CNF formula that takes the form of a list of lists of litterals
     (conjunctions of disjunctions of possibly negated proprositions).
     <code class="code">neg lit</code> returns the negation of the litteral (not)
     <code class="code">fresh ()</code> returns a newly generated litteral
-    Returns:<ul>
+    Returns:</p>
+<ul>
 <li>the list of lists of litterals</li>
 <li>the table literal-to-name
     Note that the total number of literals is exactly equal to the table size;
     this size includes the special propositions beginning with '&amp;' (e.g., '&amp;4').</li>
 </ul>
-<br>
 </div>
-<br>
-<h2 id="2_DIMACSoutput">DIMACS output</h2>
-<p>
-
-    The following functions are for displaying dimacs/qdimacs format.
-    Example for the formula
-    <pre class="verbatim">        rain=&gt;wet and rain and not wet
-   </pre>
-    we get the dimacs file:
-    <pre class="verbatim">        c wet 1                           &lt;-- (optionnal) [print_table]
+</div>
+<h3 id="2_DIMACSoutput">DIMACS output</h3>
+<p>The following functions are for displaying dimacs/qdimacs format.
+    Example for the formula</p>
+<pre class="verbatim">        rain=&gt;wet and rain and not wet
+   </pre><p>we get the dimacs file:</p>
+<pre class="verbatim">        c wet 1                           &lt;-- (optionnal) [print_table]
         c rain 2
         c CNF format file                 &lt;-- by hand
         p cnf 2 3                         &lt;-- by hand (nb_lits, nb_clauses)
         -2 1 0                            &lt;-- [print_clauses]
         -2 2 0
         -2 -1 0
-   </pre><br>
-
-<pre><span id="VALprint_table"><span class="keyword">val</span> print_table</span> : <code class="type">('a -> int) -><br>       Pervasives.out_channel -> ?prefix:string -> ('a, string) Hashtbl.t -> unit</code></pre><div class="info ">
-<code class="code">print_table</code> prints the correspondance table between literals (= numbers)
-    and user-defined proposition names, e.g.,
-    <pre class="verbatim">        p(1,2) 98
    </pre>
-    where 98 is the literal id number (given automatically) and p(1,2) is the
-    name of this proposition.
-<p>
+<pre><span id="VALprint_table"><span class="keyword">val</span> print_table</span> : <code class="type">('a -> int) -><br>       Pervasives.out_channel -> ?prefix:string -> ('a, string) Hashtbl.t -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">print_table</code> prints the correspondance table between literals (= numbers)
+    and user-defined proposition names, e.g.,</p>
+<pre class="verbatim">        p(1,2) 98
+   </pre><p>where 98 is the literal id number (given automatically) and p(1,2) is the
+    name of this proposition.</p>
 
-    NOTE: you can add a prefix to 'p(1,2) 98', e.g. <pre class="codepre"><code class="code">        string_of_table ~prefix:"c " table
-    </code></pre>
-    in order to have all lines beginning by 'c' (= comment) in order to comply to
-    the DIMACS format.<br>
+<p>NOTE: you can add a prefix to 'p(1,2) 98', e.g.</p>
+<pre class="codepre"><code class="code">        string_of_table ~prefix:"c " table
+    </code></pre><p>in order to have all lines beginning by 'c' (= comment) in order to comply to
+    the DIMACS format.</p>
+</div>
 </div>
 
 <pre><span id="VALprint_clauses"><span class="keyword">val</span> print_clauses</span> : <code class="type">Pervasives.out_channel -> ('a -> string) -> 'a list list -> unit</code></pre><div class="info ">
-<code class="code">print_clauses</code> prints one disjunction per line ended by 0:
-    <pre class="verbatim">       -2 1 0
+<div class="info-desc">
+<p><code class="code">print_clauses</code> prints one disjunction per line ended by 0:</p>
+<pre class="verbatim">       -2 1 0
        -2 2 0
-   </pre>
-    IMPORTANT: prints ONLY the clauses. You must print the dimacs/qdimacs
-    header yourself, e.g.:
-    <pre class="verbatim">       p cnf &lt;nb_lits&gt; &lt;nb_clauses&gt;      with &lt;nb_lits&gt; = Hashtbl.length table
+   </pre><p>IMPORTANT: prints ONLY the clauses. You must print the dimacs/qdimacs
+    header yourself, e.g.:</p>
+<pre class="verbatim">       p cnf &lt;nb_lits&gt; &lt;nb_clauses&gt;      with &lt;nb_lits&gt; = Hashtbl.length table
                                               &lt;nb_clauses&gt; = List.length clauses
-   </pre><br>
+   </pre></div>
 </div>
-<br>
-<h2 id="2_Otherfunctions">Other functions</h2><br>
-
+<h3 id="2_Otherfunctions">Other functions</h3>
 <pre><span id="VALis_dummy"><span class="keyword">val</span> is_dummy</span> : <code class="type">string -> bool</code></pre><div class="info ">
-<code class="code">is_dummy name</code> tells (using the <code class="code">name</code> of a litteral) is a 'dummy' literal
+<div class="info-desc">
+<p><code class="code">is_dummy name</code> tells (using the <code class="code">name</code> of a litteral) is a 'dummy' literal
     that was introduced during cnf conversion; these literals are identified
-    by their prefix '&amp;'.<br>
+    by their prefix '&amp;'.</p>
+</div>
 </div>
 </body></html>

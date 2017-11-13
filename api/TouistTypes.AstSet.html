@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="TouistTypes.Ast.html">
 <link rel="Up" href="TouistTypes.html">
@@ -30,28 +31,36 @@
 &nbsp;</div>
 <h1>Module <a href="type_TouistTypes.AstSet.html">TouistTypes.AstSet</a></h1>
 
-<pre><span class="keyword">module</span> AstSet: <code class="code">sig</code> <a href="TouistTypes.AstSet.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEAstSet"><span class="keyword">module</span> AstSet</span>: <code class="code">sig</code> <a href="TouistTypes.AstSet.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span class="keyword">include</span> Set.S</pre>
 
 <pre><span id="VALcombinations"><span class="keyword">val</span> combinations</span> : <code class="type">int -> t -> elt list list</code></pre><div class="info ">
-Return the different ways to choose k elements among a set of n
-        elements<br>
+<div class="info-desc">
+<p>Return the different ways to choose k elements among a set of n
+        elements</p>
+</div>
 </div>
 
 <pre><span id="VALexact"><span class="keyword">val</span> exact</span> : <code class="type">int -> t -> (elt list * elt list) list</code></pre><div class="info ">
-Return a list of tuples. The first member is a combination of k
+<div class="info-desc">
+<p>Return a list of tuples. The first member is a combination of k
         elements in the set and the second member is the list of every other
-        set elements not in the combination<br>
+        set elements not in the combination</p>
+</div>
 </div>
 
 <pre><span id="VALatleast"><span class="keyword">val</span> atleast</span> : <code class="type">int -> t -> elt list list</code></pre><div class="info ">
-Actually an alias for the combinations function:
-        combinations k set<br>
+<div class="info-desc">
+<p>Actually an alias for the combinations function:
+        combinations k set</p>
+</div>
 </div>
 
 <pre><span id="VALatmost"><span class="keyword">val</span> atmost</span> : <code class="type">int -> t -> elt list list</code></pre><div class="info ">
-Equivalent to:
-        combinations (n-k) set, where n = card(set)<br>
+<div class="info-desc">
+<p>Equivalent to:
+        combinations (n-k) set, where n = card(set)</p>
+</div>
 </div>
 </body></html>
