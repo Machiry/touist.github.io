@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="TouistLatex.html">
 <link rel="next" href="TouistTypes.html">
@@ -35,19 +36,20 @@
 </div>
 <h1>Module <a href="type_TouistErr.html">TouistErr</a></h1>
 
-<pre><span class="keyword">module</span> TouistErr: <code class="code">sig</code> <a href="TouistErr.html">..</a> <code class="code">end</code></pre><div class="info module top">
-This is where the compiler errors are managed.
-<p>
+<pre><span id="MODULETouistErr"><span class="keyword">module</span> TouistErr</span>: <code class="code">sig</code> <a href="TouistErr.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>This is where the compiler errors are managed.</p>
 
-    We call a 'message' an error or a warning.
-    Two cases for displaying the errors:<ul>
+<p>We call a 'message' an error or a warning.
+    Two cases for displaying the errors:</p>
+<ul>
 <li>either one of the parse/eval/smt/sat function will raise the TouistFatal exception.
       In this case, after the exception is catched, you can run <code class="code">print_msgs</code>.</li>
 <li>or no fatal error has been encoundered; if you want to display the errors,
       you can run <code class="code">print_msgs</code>.</li>
 </ul>
-
-   Rules for good error or warning messages:<ul>
+<p>Rules for good error or warning messages:</p>
+<ul>
 <li>a message must always end with a newline</li>
 <li>use a new line (\n) only when the line break is mandatory for
       understanding. The text will be wrapped automatically.</li>
@@ -56,7 +58,7 @@ This is where the compiler errors are managed.
       Indented text is colored.</li>
 <li>the text in simple quote '...' or backquotes `...` is colored</li>
 </ul>
-<br>
+</div>
 </div>
 <hr width="100%">
 
@@ -138,17 +140,11 @@ This is where the compiler errors are managed.
 
 
 <pre><span id="EXCEPTIONTouistFatal"><span class="keyword">exception</span> TouistFatal</span> <span class="keyword">of</span> <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a></code></pre>
-<br>
-<h2 id="2_Printtheerrors">Print the errors</h2><br>
-
+<h3 id="2_Printtheerrors">Print the errors</h3>
 <pre><span id="VALstring_of_loc"><span class="keyword">val</span> string_of_loc</span> : <code class="type">?fmt:string -> <a href="TouistErr.html#TYPEloc">loc</a> -> string</code></pre>
-<pre><span id="VALstring_of_msg"><span class="keyword">val</span> string_of_msg</span> : <code class="type">?width:int -> ?color:bool -> ?fmt:string -> <a href="TouistErr.html#TYPEmsg">msg</a> -> string</code></pre><br>
-<h2 id="2_Giveerrors">Give errors</h2><br>
-
+<pre><span id="VALstring_of_msg"><span class="keyword">val</span> string_of_msg</span> : <code class="type">?width:int -> ?color:bool -> ?fmt:string -> <a href="TouistErr.html#TYPEmsg">msg</a> -> string</code></pre><h3 id="2_Giveerrors">Give errors</h3>
 <pre><span id="VALwarn"><span class="keyword">val</span> warn</span> : <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a> -> unit</code></pre>
-<pre><span id="VALfatal"><span class="keyword">val</span> fatal</span> : <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a> -> 'a</code></pre><br>
-<h2 id="2_Changetheerrorformatting">Change the error formatting</h2><br>
-
+<pre><span id="VALfatal"><span class="keyword">val</span> fatal</span> : <code class="type"><a href="TouistErr.html#TYPEmsg">msg</a> -> 'a</code></pre><h3 id="2_Changetheerrorformatting">Change the error formatting</h3>
 <pre><span id="VALwrap_width"><span class="keyword">val</span> wrap_width</span> : <code class="type">int Pervasives.ref</code></pre>
 <pre><span id="VALformat"><span class="keyword">val</span> format</span> : <code class="type">string Pervasives.ref</code></pre>
 <pre><span id="VALloc_format"><span class="keyword">val</span> loc_format</span> : <code class="type">string Pervasives.ref</code></pre>

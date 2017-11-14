@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="TouistQbf.html">
 <link rel="next" href="TouistPprint.html">
@@ -35,62 +36,65 @@
 </div>
 <h1>Module <a href="type_TouistSatSolve.html">TouistSatSolve</a></h1>
 
-<pre><span class="keyword">module</span> TouistSatSolve: <code class="code">sig</code> <a href="TouistSatSolve.html">..</a> <code class="code">end</code></pre><div class="info module top">
-<b>Requires <code class="code">minisat</code></b> Process a CNF AST to clauses in order to solve
-    them with Minisat.<br>
+<pre><span id="MODULETouistSatSolve"><span class="keyword">module</span> TouistSatSolve</span>: <code class="code">sig</code> <a href="TouistSatSolve.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p><b>Requires <code class="code">minisat</code></b> Process a CNF AST to clauses in order to solve
+    them with Minisat.</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h2 id="2_CNFtoclauses">CNF to clauses</h2><br>
-
+<h3 id="2_CNFtoclauses">CNF to clauses</h3>
 <pre><span id="VALminisat_clauses_of_cnf"><span class="keyword">val</span> minisat_clauses_of_cnf</span> : <code class="type"><a href="TouistTypes.Ast.html#TYPEt">TouistTypes.Ast.t</a> -><br>       Minisat.Lit.t list list * (Minisat.Lit.t, string) Hashtbl.t</code></pre><div class="info ">
-<code class="code">minisat_clauses_of_cnf ast</code> takes a CNF <code class="code">ast</code> and outputs<ul>
+<div class="info-desc">
+<p><code class="code">minisat_clauses_of_cnf ast</code> takes a CNF <code class="code">ast</code> and outputs</p>
+<ul>
 <li>a list of lists of Minisat litterals,</li>
 <li>a mapping table (Minisat litterals -&gt; name of the proposition)</li>
 </ul>
-<br>
 </div>
-<br>
-<h2 id="2_SolvingclausesusingMinisat">Solving clauses (using Minisat)</h2><br>
-
-<pre><span class="keyword">module</span> <a href="TouistSatSolve.Model.html">Model</a>: <code class="code">sig</code> <a href="TouistSatSolve.Model.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="TouistSatSolve.ModelSet.html">ModelSet</a>: <code class="code">sig</code> <a href="TouistSatSolve.ModelSet.html">..</a> <code class="code">end</code></pre>
+</div>
+<h3 id="2_SolvingclausesusingMinisat">Solving clauses (using Minisat)</h3>
+<pre><span id="MODULEModel"><span class="keyword">module</span> <a href="TouistSatSolve.Model.html">Model</a></span>: <code class="code">sig</code> <a href="TouistSatSolve.Model.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEModelSet"><span class="keyword">module</span> <a href="TouistSatSolve.ModelSet.html">ModelSet</a></span>: <code class="code">sig</code> <a href="TouistSatSolve.ModelSet.html">..</a> <code class="code">end</code></pre>
 <pre><span id="VALsolve_clauses"><span class="keyword">val</span> solve_clauses</span> : <code class="type">?verbose:bool -><br>       ?print:(<a href="TouistSatSolve.Model.html#TYPEt">Model.t</a> -> int -> unit) -><br>       ?continue:(<a href="TouistSatSolve.Model.html#TYPEt">Model.t</a> -> int -> bool) -><br>       Minisat.Lit.t list list * (Minisat.Lit.t, string) Hashtbl.t -><br>       ModelSet.t Pervasives.ref</code></pre><div class="info ">
-<code class="code">solve_clauses</code> finds the models for the given clauses.
-<p>
+<div class="info-desc">
+<p><code class="code">solve_clauses</code> finds the models for the given clauses.</p>
 
-    <code class="code">print model N </code> is a function that will print a model as soon as it is
+<p><code class="code">print model N </code> is a function that will print a model as soon as it is
       found. <code class="code">N</code> is the number of the model, it begins at 1.
       It can be useful to print the models as they appear because finding all
       models (if <code class="code">limit</code> is large) can be extremely long.
-      Example: <code class="code">~print:(TouistSatSolve.Model.pprint table model)</code>
-<p>
+      Example: <code class="code">~print:(TouistSatSolve.Model.pprint table model)</code></p>
 
-    <code class="code">verbose</code> allows to turn on the verbose mode of minisat; apparently, this
+<p><code class="code">verbose</code> allows to turn on the verbose mode of minisat; apparently, this
       minisat feature doesn't seem to be working and doesn't display any time
-      information.
-<p>
+      information.</p>
 
-    <code class="code">continue model nth</code> is a function called after every model that has been
+<p><code class="code">continue model nth</code> is a function called after every model that has been
       found. <code class="code">model</code> contains the found model and <code class="code">N</code> says that this model was
       the nth model found. This function tells <code class="code">solve_clauses</code> to go on searching
-      models or not.<br>
+      models or not.</p>
+</div>
 </div>
 
 <pre><span id="VALstring_of_clause"><span class="keyword">val</span> string_of_clause</span> : <code class="type">Minisat.Lit.t list -> string</code></pre><div class="info ">
-<code class="code">string_of_clause</code> dumps the clause in its literal-number form:
-    e.g., 1 -5 3 9 -2 -7<br>
+<div class="info-desc">
+<p><code class="code">string_of_clause</code> dumps the clause in its literal-number form:
+    e.g., 1 -5 3 9 -2 -7</p>
+</div>
 </div>
 
 <pre><span id="VALstring_of_clauses"><span class="keyword">val</span> string_of_clauses</span> : <code class="type">Minisat.Lit.t list list -> string</code></pre><div class="info ">
-<code class="code">string_of_clauses</code> does <a href="TouistSatSolve.html#VALstring_of_clause"><code class="code">TouistSatSolve.string_of_clause</code></a> with newlines between clauses.<br>
+<div class="info-desc">
+<p><code class="code">string_of_clauses</code> does <a href="TouistSatSolve.html#VALstring_of_clause"><code class="code">TouistSatSolve.string_of_clause</code></a> with newlines between clauses.</p>
 </div>
-<br>
-<h2 id="2_PrintDIMACS">Print DIMACS</h2><br>
-
+</div>
+<h3 id="2_PrintDIMACS">Print DIMACS</h3>
 <pre><span id="VALprint_dimacs"><span class="keyword">val</span> print_dimacs</span> : <code class="type">?debug_dimacs:bool -><br>       Minisat.Lit.t list list * (Minisat.Lit.t, string) Hashtbl.t -><br>       ?out_table:Pervasives.out_channel -> Pervasives.out_channel -> unit</code></pre><div class="info ">
-<code class="code">print_dimacs (clauses, table) out</code> takes the
-    result of <a href="TouistSatSolve.html#VALminisat_clauses_of_cnf"><code class="code">TouistSatSolve.minisat_clauses_of_cnf</code></a> and prints the following:<ul>
+<div class="info-desc">
+<p><code class="code">print_dimacs (clauses, table) out</code> takes the
+    result of <a href="TouistSatSolve.html#VALminisat_clauses_of_cnf"><code class="code">TouistSatSolve.minisat_clauses_of_cnf</code></a> and prints the following:</p>
+<ul>
 <li>1) If <code class="code">~out_table</code> is given, print the mapping table from litterals
          integers to names. If <code class="code">out</code> and <code class="code">out_table</code> are the same, then the
          mapping table will be printed in DIMACS comments
@@ -101,7 +105,7 @@
 <li>4) the clauses (one conjunction per line, one line is a disjunction,
          minus means 'not').</li>
 </ul>
-
-    See on Google "Satisfiability Suggested Format" (May 8, 1993)<br>
+<p>See on Google "Satisfiability Suggested Format" (May 8, 1993)</p>
+</div>
 </div>
 </body></html>
