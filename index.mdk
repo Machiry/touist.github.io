@@ -16,6 +16,8 @@ Script: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
 Script: ./ress/js/version.js
 .code2 { language: Touist } <!-- Coloring touist: ``bigand`` -->
 Touist: [TouIST]{font-variant: small-caps}
+<!--If you don't have texlive-2017 installed, uncomment 'Math Mode: mathjax'-->
+<!--Math Mode: mathjax-->
 
 [INCLUDE=title]
 ~ Begin Container
