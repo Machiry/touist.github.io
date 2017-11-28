@@ -1,0 +1,32 @@
+~~~~ Begin Container {.list-inline .touist-buttons}
+- {.list-inline-item} [[]{.fa .fa-download} Download TouIST [v0.0.0]{.badge .badge-success #version}
+    [[]{.fa .fa-spinner #logo_dl}]{.badge .badge-primary} [jar]{.badge .badge-secondary}
+  ](#){data-title="Jar version. Java JRE 7 required."; .btn .btn-default; #main_download; target:_blank; html-role:button; data-toggle:tooltip; data-placement:top}
+- {.list-inline-item} [[]{.fa .fa-download} Other downloads](https://github.com/touist/touist/releases){.btn .btn-default; role:button; data-toggle:tooltip; data-title:"Other platforms, source, unsigned native apps (.app, .exe)"}
+- {.list-inline-item} [[]{.fa .fa-github .fa-3} Source](#){#github_link html-role:button; .btn .btn-default}
+- {.list-inline-item} [[]{.fa .fa-book} Reference manual (html)](doc/reference-manual.html){.btn .btn-default html-role:button}
+- {.list-inline-item} [[]{.fa .fa-file-pdf-o} Reference manual (pdf)](doc/reference-manual.pdf){.btn .btn-default html-role:button}
+- {.list-inline-item} [[]{.fa .fa-book} API reference](api/index.html){data-title:"TouIST can be used as an OCaml library"; .btn .btn-default html-role:button data-toggle:tooltip data-html:true}
+- {.list-inline-item} [[]{.fa .fa-clock-o} Changelog](https://github.com/touist/touist/blob/master/CHANGELOG){.btn .btn-default html-role:button}
+- {.list-inline-item} [[]{.fa .fa-files-o} Revisions of the manual](doc/manual-revision.html){.btn .btn-default html-role:button}
+- {.list-inline-item} [![gitter-badge]][gitter]
+- {.list-inline-item} [![issues-badge]][issues]
+- {.list-inline-item} <div style="width: min-content; margin: 0 auto">
+    <div class="input-group" style="">
+        <span class="input-group-addon" data-toggle="tooltip">
+            <a style="color:white" href="https://opam.ocaml.org/doc/Install.html" data-toggle="tooltip" data-html="true" data-placement="left"
+                title="OPAM is a package manager for OCaml packages, similar to <code>pip</code> (python) or <code>gem</code> (ruby).<br/>
+                                    To use the command-line <code>touist</code>, this is the way to go.
+                                    To know more about installing OPAM, click the link.">OPAM</a>
+        </span>
+        <input type="text" class="form-control code" id="basic-url" aria-describedby="basic-addon3" onclick="this.focus();this.select()"
+            readonly="readonly" value="opam install touist" style="width:min-content">
+    </div>
+  </div>
+{.list-inline}
+~~~~ End Container
+
+[gitter]: https://gitter.im/touist-project/touist
+[gitter-badge]: https://badges.gitter.im/touist-project/touist.svg
+[issues]: https://github.com/touist/touist/issues
+[issues-badge]: https://img.shields.io/github/issues/touist/touist.svg

@@ -1,0 +1,43 @@
+
+~ Begin Section {.jumbotron .touist-footer}
+~ Begin Container
+~~ Begin Row
+~ Col
+[]{.fa .fa-info .fa-4x}
+## Licence
+~
+~ Col
+[]{.fa .fa-code .fa-4x}
+## Contribute
+~
+~ Col
+[]{.fa .fa-users .fa-4x}
+## Contributors
+~
+~~ End Row
+
+~~ Begin Row
+~ Col
+This software is licensed under the [MIT License](https://github.com/touist/touist/blob/master/LICENSE)
+~
+~ Col
+This project is open-source. You are welcome to contribute to the
+project on Github. For more information, you can read
+the     [contribution
+guide](https://github.com/touist/touist/blob/master/CONTRIBUTING.md).
+~
+~ Col
+  [List of contributors](https://github.com/touist/touist/graphs/contributors)
+~
+~~ End Row
+~ End Container
+~ End Section
+
+~ Footer {.footer}
+~~ Container {.container}
+[TouIST][touist] | Design: [Erim](https://github.com/erim32), [Maël Valais](https://github.com/maelvalais)
+{.text-muted}
+~~
+~
+
+[touist]: https://github.com/touist/touist

@@ -1,4 +1,13 @@
 
+var creator 			= "touist";
+var project 			= "touist";
+var branch  			= "master";
+var changelogfile 		= "CHANGELOG";
+var licencefile 		= "LICENSE";
+var participatefile		= "CONTRIBUTING.md";
+var contributorfile 	= "CONTRIBUTORS.md"
+
+
 var zip_all;
 var version;
 $.get("https://api.github.com/repos/" + creator + "/" + project + "/releases/latest", function (data) {
@@ -13,9 +22,6 @@ function getVersion(zip_all) {
   slashs = zip_all.split('/');
   return slashs[slashs.length - 1];
 }
-
-//lien github
-document.getElementById('github_link').href = "https://github.com/" + creator + "/" + project;
 
 //lien de telchargement
 function LienTelechargement(version, zip_all) {
@@ -49,8 +55,20 @@ function LienTelechargement(version, zip_all) {
   if (logo.indexOf("invalide") == -1) {
     $("#logo_dl").attr('class','fa fa-' + logo + ' fa-3');
   }
-
-  $('#header_download').attr('href', lien);
   $('#main_download').attr('href', lien);
-
 }
+
+// Tooltip provided by bootstrap
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
+// Stuff for Google Analytics
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-88710120-2', 'auto');
+ga('send', 'pageview');

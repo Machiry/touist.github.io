@@ -1,0 +1,13 @@
+
+~ Begin Jumbotron {.touist-header-jumbotron}
+~~ Begin Container {.touist-header}
+![touistlogo]
+[touistlogo]: ress/img/logo.png "TouIST logo" {width: 175px}
+# &title;
+A friendly language for propositional logic and more
+~~ End Container
+~ End Jumbotron
+
+[github-site]: https://github.com/touist/touist.github.io
+[forkme]: https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png {position:absolute; top:0; right:0; border:0; z-index:100}
+[![forkme]][github-site]

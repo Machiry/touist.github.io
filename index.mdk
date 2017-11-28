@@ -1,0 +1,75 @@
+
+Title: TouIST
+Description: TouIST, the IDE & Language for Logic
+Author: Maël Valais
+Heading Depth: 0
+Toc Depth: 2
+Col: {.col-md-4}
+<!-- I don't want to use the madoko-provided CSS files. -->
+Css: clear
+Css: https://use.fontawesome.com/bd3ac6f0da.css
+Css: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css
+Css: ./ress/css/style.css
+Script: https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js
+Script: https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js
+Script: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
+Script: ./ress/js/version.js
+.code2 { language: Touist } <!-- Coloring touist: ``bigand`` -->
+Touist: [TouIST]{font-variant: small-caps}
+
+[INCLUDE=title]
+~ Begin Container
+~~ Begin Jumbotron  {.touist-body}
+[INCLUDE=buttons]
+
+Beyond the Boolean connectives of propositional logic, the input language
+of &touist; allows sets, conjunctions and disjunctions parametrized by sets,
+abbreviations... You can express complex propositional formulas as
+
+~ Math
+\bigwedge\limits_{\substack{\mathbf{pos}\in [left,right]}}\left(is_{\mathbf{pos}} \Rightarrow ok\right)
+~
+
+which is, in TouIST:
+
+```touist
+  bigand $i in [left,right]:
+      p($i)
+  end
+```
+
+We can conveniently express and solve problems such the sudoku (see the
+[example](https://github.com/touist/touist/blob/master/test/sat/sudoku.touist)).
+
+
+The team behind &touist; consists of [Frédéric Maris][fred] (Associate
+Professor),   [Olivier Gasquet][olivier] (Full Professor),   [Dominique
+Longin][domi] (Research Scientist) and   [Maël Valais][mael] (PhD
+student) at the Institut de Recherche en Informatique de Toulouse
+([IRIT]). It is a "second" or "new" version of a previous program,
+SAToulouse. &touist; is now actively developed in context of Maël Valais'
+PhD thesis.
+
+
+
+[fred]: https://www.irit.fr/spip.php?page=annuaire&code=2646
+[olivier]: https://www.irit.fr/~Olivier.Gasquet
+[domi]: https://www.irit.fr/~Dominique.Longin
+[mael]: https://www.irit.fr/~Mael.Valais
+[IRIT]: https://www.irit.fr
+
+Also, feel free to come to our [Gitter chatroom][gitter] for any request,
+bug or remarks! Or you can create a ticket on the [issue tracker][issues].
+
+[gitter]: https://gitter.im/touist-project/touist
+[issues]: https://github.com/touist/touist/issues
+
+~ Center
+![screenshot]
+[screenshot]: /ress/img/carrousel/screen1.png {width: 100%}
+~
+
+~~ End Jumbotron
+~ End Container
+
+[INCLUDE=footer]
