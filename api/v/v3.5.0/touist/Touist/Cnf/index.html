@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Cnf (touist.Touist.Cnf)</title><link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="generator" content="doc-ock-html v1.0.0-1-g1fc9bf0"/></head><body><nav id="top"><a href="../index.html">Up</a> &mdash; <span class="package">package <a href="../../index.html">touist</a></span></nav><header><h1><span class="keyword">Module</span> <span class="module-path">Touist.Cnf</span></h1></header><p>Process an evaluated AST given by Eval.eval
+to produce a CNF AST and output DIMACS</p><p><code class="code">ast_to_cnf</code> is the main function.</p><h3>Vocabulary</h3><ul><li><p><b>Literal</b>:
+a possibly negated proposition; we denote them as a, b... and
+their type is homogenous to <code class="code">Prop _</code> or <code class="code">Not(Prop _)</code> or <code class="code">Top</code> or <code class="code">Bottom</code>.
+Exples:
+</p><ul><li><code class="code"> a        </code> is a literal,</li><li><code class="code"> not b    </code> is a literal.</li></ul></li><li><p><b>Clause</b>:
+a disjunction (= separated by &quot;or&quot;) of possibly negated literals.
+Example of clause:
+</p><ul><li><code class="code"> a or not b or c or d   </code> is a clause</li></ul></li><li><p><b>Conjunction</b>:
+literals separated by &quot;and&quot;; example:
+</p><ul><li><code class="code"> a and b and not and not d    </code> is a conjunction</li></ul></li><li><p><b>AST</b>:
+abstract syntax tree; it is homogenous to Types.Ast.t
+and is a recursive tree representing a formula, using Or, And, Implies...
+Example: the formula (1) has the abstract syntax tree (2):
+</p><ul><li><code class="code"> (a or b) and not c    </code> (1) natural language</li><li><code class="code"> And (Or (Prop x, Prop x),Not (Prop x))  </code>(2) abstract syntax tree</li></ul></li><li><p><b>CNF</b>:
+a Conjunctive Normal Form is an AST that has a special structure with
+is a conjunction of disjunctions of literals. For example:
+</p><ul><li><code class="code"> (a or not b) and (not c and d)   </code> is a CNF form</li><li><code class="code"> (a and b) or not (c or d)        </code> is not a CNF form</li></ul></li></ul><h3>CNF transformation</h3><div class="spec val" id="val-ast_to_cnf"><a href="#val-ast_to_cnf" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>ast_to_cnf : ?&#8288;debug_cnf:bool <span class="keyword">&#8209;&gt;</span> <a href="../Types/Ast/index.html#type-t">Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> <a href="../Types/Ast/index.html#type-t">Types.Ast.t</a></code></div><div class="doc"><p><code class="code">ast_to_cnf</code> translates the syntaxic tree made of Or, And, Implies, Equiv...
+Or, And and Not; moreover, it can only be in a conjunction of formulas
+(see a reminder of their definition above).
+For example (instead of And, Or we use &quot;and&quot; and &quot;or&quot; and &quot;not&quot;):
+</p><pre>
+        (a or not b or c) and (not a or b or d) and (d)
+    </pre><p>
+The matching abstract syntax tree (ast) is
+</p><pre>
+        And (Or a,(Cor (Not b),c)), (And (Or (Or (Not a),b),d), d)
+    </pre></div></div><h3>Clauses transformation</h3><div class="spec val" id="val-clauses_of_cnf"><a href="#val-clauses_of_cnf" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>clauses_of_cnf : (<span class="type-var">'a</span> <span class="keyword">&#8209;&gt;</span> <span class="type-var">'a</span>) <span class="keyword">&#8209;&gt;</span> (unit <span class="keyword">&#8209;&gt;</span> <span class="type-var">'a</span>) <span class="keyword">&#8209;&gt;</span> <a href="../Types/Ast/index.html#type-t">Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> <span class="type-var">'a</span> list list<span class="keyword"> * </span>(<span class="type-var">'a</span>, string) Hashtbl.t<span class="keyword"> * </span>(string, <span class="type-var">'a</span>) Hashtbl.t</code></div><div class="doc"><p><code class="code">clauses_of_cnf</code> translates the cnf ast (Not, And, Or, Prop; no Bot/Top)
+into a CNF formula that takes the form of a list of lists of litterals
+(conjunctions of disjunctions of possibly negated proprositions).
+<code class="code">neg lit</code> returns the negation of the litteral (not)
+<code class="code">fresh ()</code> returns a newly generated litteral
+Returns:
+</p><ul><li>the list of lists of litterals</li><li>the table literal-to-name
+Note that the total number of literals is exactly equal to the table size;
+this size includes the special propositions beginning with '&amp;' (e.g., '&amp;4').</li></ul></div></div><h3>DIMACS output</h3><p>The following functions are for displaying dimacs/qdimacs format.
+Example for the formula
+</p><pre>
+        rain=&gt;wet and rain and not wet
+    </pre><p>
+we get the dimacs file:
+</p><pre>
+        c wet 1                           &lt;-- (optionnal) [print_table]
+        c rain 2
+        c CNF format file                 &lt;-- by hand
+        p cnf 2 3                         &lt;-- by hand (nb_lits, nb_clauses)
+        -2 1 0                            &lt;-- [print_clauses]
+        -2 2 0
+        -2 -1 0
+    </pre><div class="spec val" id="val-print_table"><a href="#val-print_table" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>print_table : (<span class="type-var">'a</span> <span class="keyword">&#8209;&gt;</span> int) <span class="keyword">&#8209;&gt;</span> Pervasives.out_channel <span class="keyword">&#8209;&gt;</span> ?&#8288;prefix:string <span class="keyword">&#8209;&gt;</span> (<span class="type-var">'a</span>, string) Hashtbl.t <span class="keyword">&#8209;&gt;</span> unit</code></div><div class="doc"><p><code class="code">print_table</code> prints the correspondance table between literals (= numbers)
+and user-defined proposition names, e.g.,
+</p><pre>
+        p(1,2) 98
+    </pre><p>
+where 98 is the literal id number (given automatically) and p(1,2) is the
+name of this proposition.</p><p>NOTE: you can add a prefix to 'p(1,2) 98', e.g. </p><pre><code class="code">
+        string_of_table ~prefix:&quot;c &quot; table
+    </code></pre><p>
+in order to have all lines beginning by 'c' (= comment) in order to comply to
+the DIMACS format.</p></div></div><div class="spec val" id="val-print_clauses"><a href="#val-print_clauses" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>print_clauses : Pervasives.out_channel <span class="keyword">&#8209;&gt;</span> (<span class="type-var">'a</span> <span class="keyword">&#8209;&gt;</span> string) <span class="keyword">&#8209;&gt;</span> <span class="type-var">'a</span> list list <span class="keyword">&#8209;&gt;</span> unit</code></div><div class="doc"><p><code class="code">print_clauses</code> prints one disjunction per line ended by 0:
+</p><pre>
+       -2 1 0
+       -2 2 0
+    </pre><p>
+IMPORTANT: prints ONLY the clauses. You must print the dimacs/qdimacs
+header yourself, e.g.:
+</p><pre>
+       p cnf &lt;nb_lits&gt; &lt;nb_clauses&gt;      with &lt;nb_lits&gt; = Hashtbl.length table
+                                              &lt;nb_clauses&gt; = List.length clauses
+    </pre></div></div><h3>Other functions</h3><div class="spec val" id="val-is_dummy"><a href="#val-is_dummy" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>is_dummy : string <span class="keyword">&#8209;&gt;</span> bool</code></div><div class="doc"><p><code class="code">is_dummy name</code> tells (using the <code class="code">name</code> of a litteral) is a 'dummy' literal
+that was introduced during cnf conversion; these literals are identified
+by their prefix '&amp;'.</p></div></div></body></html>

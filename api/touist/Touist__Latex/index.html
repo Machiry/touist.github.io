@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Touist__Latex (touist.Touist__Latex)</title><link rel="stylesheet" href="../../odoc.css"/><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="generator" content="doc-ock-html v1.0.0-1-g1fc9bf0"/></head><body><nav id="top"><a href="../index.html">Up</a> &mdash; <span class="package">package <a href="../index.html">touist</a></span></nav><header><h1><span class="keyword">Module</span> <span class="module-path">Touist__Latex</span></h1></header><p>Transform any AST (at any stage of transformation) to latex.</p><p>Note that the headers are not included; if you want to compile
+the resulting latex text in a real latex document, you would need
+to add (fr example):
+</p><pre><code class="code">
+      \documentclass[11pt]{report}
+      \usepackage{mathtools}
+      \begin{document}
+        % thing produced by latex_of_ast
+      \end{document}
+    </code></pre><p>Some details on the latex code produced:
+</p><ul><li>tuple-propositions <code class="code">p(a,b,c)</code> turn into p_<span class="a">,b,c</span></li><li>variables are displayed in bold font and '$' is removed</li><li>we use <code class="code">\mathbf{}</code> for setting bold font on variables.
+We could use <code class="code">\bm{}</code> (which is a more appropriate way
+of using bold-font in the math env as it keeps the 'italic'
+way of displaying math) but <code class="code">\usepackage{bm}</code> does not work
+with most tools: MathJax (javascript), jlatexmath (java).</li></ul><div class="spec val" id="val-latex_of_ast"><a href="#val-latex_of_ast" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>latex_of_ast : full:bool <span class="keyword">&#8209;&gt;</span> <a href="../Touist__Types/index.html#module-AstSet">Touist.Types.AstSet</a>.elt <span class="keyword">&#8209;&gt;</span> string</code></div><div class="doc"><p><code class="code">latex_of_ast</code> turns an AST into latex. Two latex variants are targeted:
+</p><ul><li>for light latex processors (mathjax, jlatexmath), you should use
+<code class="code">~full:false</code></li><li>for fully-featured latex processors, you can use <code class="code">~full:true</code>.</li></ul></div></div><h3>Utility</h3><div class="spec val" id="val-ast_fun"><a href="#val-ast_fun" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>ast_fun : (bool <span class="keyword">&#8209;&gt;</span> <a href="../Touist/Types/Ast/index.html#type-t">Touist.Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> bool) <span class="keyword">&#8209;&gt;</span> bool <span class="keyword">&#8209;&gt;</span> <a href="../Touist/Types/Ast/index.html#type-t">Touist.Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> bool</code></div><div class="doc"><p><code class="code">ast_fun</code> will apply f on all *formula*-related elements of the AST where
+cond is true. The tranversal order should not be considered.
+Whenever a non-formula is given, acc will be immediatly returned.</p></div></div><div class="spec val" id="val-contains_newline"><a href="#val-contains_newline" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>contains_newline : <a href="../Touist/Types/Ast/index.html#type-t">Touist.Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> bool</code></div><div class="doc"></div></div><div class="spec val" id="val-is_binary_op"><a href="#val-is_binary_op" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>is_binary_op : <a href="../Touist/Types/Ast/index.html#type-t">Touist.Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> bool</code></div><div class="doc"></div></div><div class="spec val" id="val-contains_binary_op"><a href="#val-contains_binary_op" class="anchor"></a><div class="def val"><code><span class="keyword">val </span>contains_binary_op : <a href="../Touist/Types/Ast/index.html#type-t">Touist.Types.Ast.t</a> <span class="keyword">&#8209;&gt;</span> bool</code></div><div class="doc"></div></div></body></html>
