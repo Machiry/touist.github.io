@@ -7,7 +7,12 @@ pull-request.
 The URL https://touist.github.io is a mirror and should not be used for official
 links to the TouIST project. Instead, use https://www.irit.fr/touist.
 
-# To edit index.mdk
+# Edit `index.mdk`
+
+Just clic [here](https://www.madoko.net/editor.html#url=https://raw.githubusercontent.com/touist/touist.github.io/master/index.mdk&options=%7B)
+to edit the website!! Note that images, touist code and latex formulas may not display correctly. To have a proper Madoko editor, read the following section.
+
+# Edit `index.mdk` using Madoko locally
 
 1. install `npm install -g madoko madoko-local`
 2. clone this project, for example
