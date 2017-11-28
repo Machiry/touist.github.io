@@ -29,15 +29,21 @@ of &touist; allows sets, conjunctions and disjunctions parametrized by sets,
 abbreviations... You can express complex propositional formulas as
 
 ~ Math
-\bigwedge\limits_{\substack{\mathbf{pos}\in [left,right]}}\left(is_{\mathbf{pos}} \Rightarrow ok\right)
+\bigwedge_{i\in\{1..9\}}
+\bigvee_{j\in\{1..9\}}\bigwedge_{n\in\{1..9\}}\bigwedge_{m\in\{1..9\},m\neq
+n}(p_{i,j,n}\rightarrow \lnot p_{i,j,m})
 ~
 
-which is, in TouIST:
+which translates to:
 
 ```touist
-  bigand $i in [left,right]:
-      p($i)
-  end
+    bigand $i in [1..9]:
+      bigor $j in [1..9]:
+        bigand $n,$m in [1..9],[1..9] when $m != $n:
+          p($i,$j,$n) => not p(i,j,m)
+        end
+      end 
+    end
 ```
 
 We can conveniently express and solve problems such the sudoku (see the
