@@ -3,7 +3,7 @@
     [[]{.fa .fa-spinner #logo_dl}]{.badge .badge-primary} [jar]{.badge .badge-secondary}
   ](#){data-title="Jar version. Java JRE 7 required."; .btn .btn-default; #main_download; target:_blank; html-role:button; data-toggle:tooltip; data-placement:top}
 - {.list-inline-item} [[]{.fa .fa-download} Other downloads](https://github.com/touist/touist/releases){.btn .btn-default; role:button; data-toggle:tooltip; data-title:"Other platforms, source, unsigned native apps (.app, .exe)"}
-- {.list-inline-item} [[]{.fa .fa-github .fa-3} Source](#){#github_link html-role:button; .btn .btn-default}
+- {.list-inline-item} [[]{.fa .fa-github .fa-3} Source](https://github.com/touist/touist){html-role:button; .btn .btn-default}
 - {.list-inline-item} [[]{.fa .fa-book} Reference manual (html)](doc/reference-manual.html){.btn .btn-default html-role:button}
 - {.list-inline-item} [[]{.fa .fa-file-pdf-o} Reference manual (pdf)](doc/reference-manual.pdf){.btn .btn-default html-role:button}
 - {.list-inline-item} [[]{.fa .fa-book} API reference](api/index.html){data-title:"TouIST can be used as an OCaml library"; .btn .btn-default html-role:button data-toggle:tooltip data-html:true}
