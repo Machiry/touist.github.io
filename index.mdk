@@ -2,6 +2,8 @@
 Title: TouIST
 Description: TouIST, the IDE & Language for Logic
 Author: Maël Valais
+Bib: bibliography.bib
+Cite All: true
 Heading Depth: 0
 Toc Depth: 2
 Col: {.col-md-4}
@@ -42,21 +44,21 @@ which translates to:
         bigand $n,$m in [1..9],[1..9] when $m != $n:
           p($i,$j,$n) => not p(i,j,m)
         end
-      end 
+      end
     end
 ```
 
-We can conveniently express and solve problems such the sudoku (see the
-[example](https://github.com/touist/touist/blob/master/test/sat/sudoku.touist)).
-
+We can conveniently express and solve problems such as the Sudoku
+(see [example](https://github.com/touist/touist/blob/master/test/sat/sudoku.touist))
+or finding a winning strategy for the Nim game
+(@Gasquet_et_al_IAF_2017, [example](https://github.com/maelvalais/allumettes)).
 
 The team behind &touist; consists of [Frédéric Maris][fred] (Associate
-Professor),   [Olivier Gasquet][olivier] (Full Professor),   [Dominique
+Professor), [Olivier Gasquet][olivier] (Full Professor), [Dominique
 Longin][domi] (Research Scientist) and   [Maël Valais][mael] (PhD
-student) at the Institut de Recherche en Informatique de Toulouse
-([IRIT]). It is a "second" or "new" version of a previous program,
-SAToulouse. &touist; is now actively developed in context of Maël Valais'
-PhD thesis.
+student) at Institut de Recherche en Informatique de Toulouse ([IRIT]).
+It is a "second" or "new" version of a previous program, SAToulouse.
+&touist; is now actively developed in context of Maël Valais' PhD thesis.
 
 
 
@@ -72,10 +74,16 @@ bug or remarks! Or you can create a ticket on the [issue tracker][issues].
 [gitter]: https://gitter.im/touist-project/touist
 [issues]: https://github.com/touist/touist/issues
 
+
 ~ Center
 ![screenshot]
 [screenshot]: /ress/img/carrousel/screen1.png {width: 100%}
 ~
+
+&br;
+
+
+[BIB]
 
 ~~ End Jumbotron
 ~ End Container

@@ -10,10 +10,6 @@
 []{.fa .fa-code .fa-4x}
 ## Contribute
 ~
-~ Col
-[]{.fa .fa-users .fa-4x}
-## Contributors
-~
 ~~ End Row
 
 ~~ Begin Row
@@ -25,9 +21,6 @@ This project is open-source. You are welcome to contribute to the
 project on Github. For more information, you can read
 the     [contribution
 guide](https://github.com/touist/touist/blob/master/CONTRIBUTING.md).
-~
-~ Col
-  [List of contributors](https://github.com/touist/touist/graphs/contributors)
 ~
 ~~ End Row
 ~ End Container
