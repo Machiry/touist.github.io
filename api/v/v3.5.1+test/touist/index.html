@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>touist-generated (touist.touist-generated)</title><link rel="stylesheet" href="../odoc.css"/><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="generator" content="doc-ock-html v1.0.0-1-g1fc9bf0"/></head><body><nav id="top"><a href="../index.html">Up</a> &mdash; <span class="package">package <a href="index.html">touist</a></span></nav><header></header><nav><a href="../index.html">Up</a></nav><h2>Touist: Parse, transform &amp; solve TouIST files</h2><p>Touist works as a flow beginning with a TouIST string (<code class="code">text</code>) and where
+each step transform the <a href="Touist/Types/Ast/index.html#type-t"><code class="code">ast</code></a>. For example:</p><p class="center"><a href="Touist/Parse/index.html#val-parse_sat"><code class="code">parse</code></a> ▷ <a href="Touist/Eval/index.html#val-eval"><code class="code">eval</code></a>
+▷ <a href="Touist/Cnf/index.html#val-ast_to_cnf"><code class="code">ast_to_cnf</code></a>
+▷ <a href="Touist/SatSolve/index.html"><code class="code">sat_solve</code></a></p><p>where ▷ is an <a href="Touist/Types/Ast/index.html#type-t"><code class="code">ast</code></a>.</p><p>The <b>input steps</b> in this &quot;flow&quot; are:</p><ul><li><a href="Touist/Parse/index.html">Touist.Parse</a> turns a text written in TouIST into an Abstract Syntaxic
+Tree (AST).</li></ul><p>The <b>intermediate steps</b> are:</p><ul><li><a href="Touist/Eval/index.html">Touist.Eval</a> evaluates an AST produced by <a href="Touist/Parse/index.html#val-parse_sat">Touist.Parse.parse_sat</a>
+(or any other parse function) so it becomes a semantically correct
+formula.</li><li><a href="Touist/Cnf/index.html">Touist.Cnf</a> processes an evaluated AST given by <a href="Touist/Eval/index.html#val-eval">Touist.Eval.eval</a> to
+produce a CNF AST and output DIMACS</li><li><a href="Touist/Smt/index.html">Touist.Smt</a> processes an evaluated AST given by <a href="Touist/Eval/index.html#val-eval">Touist.Eval.eval</a> and
+produces a string in SMT-LIB2 format.</li><li><a href="Touist/Qbf/index.html">Touist.Qbf</a> transforms an evaluated AST into prenex form, CNF and QDIMACS.</li></ul><p>The <b>output</b> steps are:
+</p><ul><li><a href="Touist/SatSolve/index.html">Touist.SatSolve</a> (requires minisat) Process a CNF AST to clauses in order
+to solve them with Minisat.</li><li><a href="Touist/Pprint/index.html">Touist.Pprint</a> transforms any AST (at any stage of transformation) to a
+string.</li><li><a href="Touist/Latex/index.html">Touist.Latex</a> transforms any AST (at any stage of transformation) to latex.</li></ul><p>The helper modules are:
+</p><ul><li><a href="Touist/Err/index.html">Touist.Err</a> manages the compiler errors.</li><li><a href="Touist/Types/index.html">Touist.Types</a> contains the <a href="Touist/Types/Ast/index.html#type-t"><code class="code">Ast.t</code></a> type (Abstract
+Syntaxic Tree).</li></ul><p>Also, the optional <b>output</b> steps are:
+</p><ul><li><span class="xref-unresolved" title="unresolved reference to &quot;Touist_smt.SmtSolve&quot;">Touist_smt.SmtSolve</span> Requires yices2 Process an evaluated AST in order to
+solve it with Yices2.</li><li><span class="xref-unresolved" title="unresolved reference to &quot;Touist_qbf.QbfSolve&quot;">Touist_qbf.QbfSolve</span> Requires qbf Process a CNF AST to clauses in order to
+solve them with Quantor.</li></ul></body></html>
