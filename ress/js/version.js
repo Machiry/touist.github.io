@@ -39,8 +39,7 @@ function LienTelechargement(version, zip_all) {
     os = "mac";
     logo = "apple";
   }
-  //if (navigator.appVersion.indexOf("X11")!=-1)       OS  ="UNIX";
-  if (navigator.appVersion.indexOf("Linux") != -1) {
+  if (navigator.appVersion.indexOf("Linux") != -1 || navigator.appVersion.indexOf("X11") != -1) {
     os = "linux";
     logo = "linux";
   }
