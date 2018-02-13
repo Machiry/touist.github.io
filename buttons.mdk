@@ -11,7 +11,7 @@
 - {.list-inline-item} [[]{.fa .fa-files-o} Revisions of the manual](doc/manual-revision.html){.btn .btn-default html-role:button}
 - {.list-inline-item} [![gitter-badge]][gitter]
 - {.list-inline-item} <div style="width: min-content; margin: 0 auto; height: 1rem;">
-    <div class="input-group" style="height: 1.4rem;">
+    <div class="input-group" style="height: 1.4rem; padding: 0;">
         <span class="input-group-addon" data-toggle="tooltip">
             <a style="color:white" href="https://opam.ocaml.org/doc/Install.html" data-toggle="tooltip" data-html="true" data-placement="left"
                 title="OPAM is a package manager for OCaml packages, similar to <code>pip</code> (python) or <code>gem</code> (ruby).<br/>
@@ -19,17 +19,17 @@
                                     To know more about installing OPAM, click the link.">opam</a>
         </span>
         <input type="text" class="form-control code" id="basic-url" aria-describedby="basic-addon3" onclick="this.focus();this.select()"
-            readonly="readonly" value="opam install touist" style="width:8.5rem">
+            readonly="readonly" value="opam install touist" style="width:8.5rem; padding:0; text-align: center;">
     </div>
   </div>
-- {.list-inline-item} <div style="width: min-content; margin: 0 auto; height: 1rem;">
-    <div class="input-group" style="height: 1.4rem;">
+- {.list-inline-item} <div style="width: min-content; margin: 0 auto; height: 1rem">
+    <div class="input-group" style="height: 1.4rem; ">
         <span style="background-color: rgb(46, 42, 36) !important; " class="input-group-addon" data-toggle="tooltip">
             <a style="color: #f9d094; background-color: rgb(46, 42, 36);" href="https://brew.sh" data-toggle="tooltip" data-html="true" data-placement="left"
                 title="Brew is a package manager for Mac/Linux">brew</a>
         </span>
         <input type="text" class="form-control code" id="basic-url" aria-describedby="basic-addon3" onclick="this.focus();this.select()"
-            readonly="readonly" value="brew install touist/touist/touist" style="width:14rem">
+            readonly="readonly" value="brew install touist/touist/touist" style="width:14rem; padding:0; text-align: center;">
     </div>
   </div>
 {.list-inline}
