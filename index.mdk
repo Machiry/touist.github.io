@@ -42,7 +42,7 @@ which translates to:
     bigand $i in [1..9]:
       bigor $j in [1..9]:
         bigand $n,$m in [1..9],[1..9] when $m != $n:
-          p($i,$j,$n) => not p(i,j,m)
+          p($i,$j,$n) => not p($i,$j,$m)
         end
       end
     end
