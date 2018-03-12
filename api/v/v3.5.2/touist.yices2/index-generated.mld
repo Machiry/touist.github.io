@@ -1,0 +1,2 @@
+{1 Library touist.yices2}
+The entry point for this library is module {!module:Touist_yices2}.
